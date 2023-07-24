@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios'
+import { useQuery } from '@tanstack/react-query';
 
 function App() {
+  const query = useQuery(['hello'], () => axios.get('http://localhost:3000/hello'));
   return (
     <div className="App">
       <header className="App-header">
@@ -15,7 +18,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          { query.data }
         </a>
       </header>
     </div>
