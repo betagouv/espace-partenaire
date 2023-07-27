@@ -1,42 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Home from './pages/Home';
-import EspaceList from './pages/lists/List';
-import Head  from './components/Header';
-import Foot  from './components/Footer';
+import { startReactDsfr } from '@codegouvfr/react-dsfr/spa';
+import { Link } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import { startReactDsfr } from "@codegouvfr/react-dsfr/spa";
-import Autre from './pages/Autre';
+import { Router } from './Router';
 
-startReactDsfr({ defaultColorScheme: "system" });
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/liste",
-    element: <EspaceList />,
-  },
-  {
-    path: "/autre",
-    element: <Autre />,
+declare module '@codegouvfr/react-dsfr/spa' {
+  interface RegisterLink {
+    Link: typeof Link;
   }
-]);
+}
+
+startReactDsfr({
+  defaultColorScheme: 'system',
+  Link,
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Head />
-    <RouterProvider router={router} />
-    <Foot />
+    <Router />
   </React.StrictMode>
 );
 

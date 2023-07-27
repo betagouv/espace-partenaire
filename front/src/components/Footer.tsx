@@ -1,20 +1,18 @@
-import { Footer } from '@codegouvfr/react-dsfr/Footer';
+import { Footer as MuiFooter } from '@codegouvfr/react-dsfr/Footer';
 
-function Foot() {
-    return (
-        <div className="Foot">
-            <Footer
-                accessibility="fully compliant"
-                contentDescription=""
-                termsLinkProps={{
-                    href: '#'
-                }}
-                websiteMapLinkProps={{
-                    href: '#'
-                }}
-            />
-        </div>
-    )
+function Footer() {
+  return (
+    <MuiFooter
+      accessibility="fully compliant"
+      contentDescription=""
+      termsLinkProps={{
+        to: '#',
+      }}
+      websiteMapLinkProps={{
+        to: '#',
+      }}
+    />
+  );
 }
 
-export default Foot
+export default Footer;
