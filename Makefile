@@ -14,3 +14,8 @@ stop:
 
 start-front sf: 
 	cd front && npm run start
+
+restart r: stop start
+
+logs l:
+	$(DOCKER_COMPOSE) logs -f
