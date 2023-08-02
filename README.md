@@ -14,6 +14,10 @@ Installer l'application en local :
 ```
 git clone git@github.com:betagouv/espace-partenaire.git
 ``` 
+Copier .env
+```
+cp back/.env.dist back/.env
+```
 Installer le projet :
 ```
 make i
