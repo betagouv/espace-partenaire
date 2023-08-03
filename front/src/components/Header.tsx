@@ -1,34 +1,56 @@
-import { Header } from '@codegouvfr/react-dsfr/Header';
+import { Header as MuiHeader } from '@codegouvfr/react-dsfr/Header';
 
-function Head() {
-    return (
-        <div className="Head">
-            <Header
-                brandTop={<>Espace<br />Partenaire</>}
-                homeLinkProps={{
-                href: '/',
-                title: 'Accueil - Espace partenaire'
-                }}
-                id="fr-header-simple-header"
-                navigation={[
-                {
-                    linkProps: {
-                    href: '/liste',
-                    target: '_self'
-                    },
-                    text: 'Liste'
-                },
-                {
-                    linkProps: {
-                    href: '/autre',
-                    target: '_self'
-                    },
-                    text: 'Autre'
-                },
-                ]}
-            />
-        </div>
-    )
+function Header() {
+  return (
+    <MuiHeader
+      brandTop={
+        <>
+          Espace
+          <br />
+          Partenaire
+        </>
+      }
+      homeLinkProps={{
+        to: '/',
+        title: 'Accueil - Espace partenaire',
+      }}
+      id="fr-header-simple-header"
+      navigation={[
+        {
+          linkProps: {
+            to: '/liste',
+            target: '_self',
+          },
+          text: 'Liste',
+        },
+        {
+          linkProps: {
+            to: '/autre',
+            target: '_self',
+          },
+          text: 'Autre',
+        },
+      ]}
+      quickAccessItems={[
+        {
+          iconId: 'fr-icon-book-2-fill',
+          linkProps: {
+            to: '#',
+          },
+          text: 'Documentation',
+        },
+        {
+          iconId: 'fr-icon-github-fill',
+          linkProps: {
+            to: '#',
+          },
+          text: 'Github',
+        },
+      ]}
+      serviceTagline="Espace de test"
+      serviceTitle="MonComptePro"
+    />
+  );
 }
 
-export default Head
+export default Header;
