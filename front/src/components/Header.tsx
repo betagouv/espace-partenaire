@@ -15,23 +15,14 @@ function Header() {
         title: 'Accueil - Espace partenaire',
       }}
       id="fr-header-simple-header"
-      navigation={[
+      quickAccessItems={[
         {
+          iconId: 'fr-icon-todo-line',
           linkProps: {
             to: '/liste',
-            target: '_self',
           },
-          text: 'Liste',
+          text: 'Liste tests',
         },
-        {
-          linkProps: {
-            to: '/autre',
-            target: '_self',
-          },
-          text: 'Autre',
-        },
-      ]}
-      quickAccessItems={[
         {
           iconId: 'fr-icon-book-2-fill',
           linkProps: {

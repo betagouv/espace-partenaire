@@ -1,11 +1,8 @@
-import {
-  RouterProvider,
-  createBrowserRouter,
-} from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
-import EspaceList from './pages/lists/List';
-import Autre from './pages/Autre';
+import { EspaceList } from './pages/ProvidersList/EspaceList';
 import { Page } from './components/Page';
+import { ProviderDetails } from './pages/ProvidersDetails/ProviderDetails';
 
 const router = createBrowserRouter([
   {
@@ -25,10 +22,10 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/autre',
+    path: '/details',
     element: (
       <Page>
-        <Autre />
+        <ProviderDetails />
       </Page>
     ),
   },
