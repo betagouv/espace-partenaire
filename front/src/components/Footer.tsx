@@ -6,10 +6,10 @@ function Footer() {
       accessibility="fully compliant"
       contentDescription=""
       termsLinkProps={{
-        to: '#',
+        href: '#',
       }}
       websiteMapLinkProps={{
-        to: '#',
+        href: '#',
       }}
     />
   );
