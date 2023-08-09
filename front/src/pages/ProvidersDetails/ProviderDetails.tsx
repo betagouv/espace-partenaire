@@ -1,7 +1,13 @@
 import Title1 from '../../components/Title1';
 import { makeStyles } from 'tss-react/dsfr';
-import Title2 from '../../components/Title2';
 import { Button } from '@codegouvfr/react-dsfr/Button';
+import { SideMenu } from './ProviderSideMenu';
+import { ProviderDescription } from './ProviderDescription';
+import { ProviderKey } from './ProviderKey';
+import { ProviderUrl } from './ProviderUrl';
+import { ProviderScope } from './ProviderScope';
+import { ProviderSave } from './ProviderSave';
+import { ProviderAuthorization } from './ProviderAuthorization';
 
 export function ProviderDetails() {
   const { classes, cx } = useStyles();
@@ -14,7 +20,9 @@ export function ProviderDetails() {
         MonComptePro !
       </p>
       <div className={`${cx(classes.root)} fr-py-6v fr-px-4v`}>
-        <Title2 title="Documentation" />
+        <p>
+          <b>Documentation</b>
+        </p>
         <p>
           Retrouvez toutes les informations dont vous avez besoin et nos
           guidelines graphiques dans l'espace de documentation.
@@ -22,6 +30,19 @@ export function ProviderDetails() {
         <Button iconId="fr-icon-book-2-line" priority="secondary">
           Lire la documentation
         </Button>
+      </div>
+      <div className="fr-container--fluid fr-mt-10v">
+        <div className="fr-grid-row">
+          <SideMenu></SideMenu>
+          <div className="fr-col-12 fr-col-md">
+            <ProviderDescription></ProviderDescription>
+            <ProviderKey></ProviderKey>
+            <ProviderUrl></ProviderUrl>
+            <ProviderScope></ProviderScope>
+            <ProviderSave></ProviderSave>
+            <ProviderAuthorization></ProviderAuthorization>
+          </div>
+        </div>
       </div>
     </div>
   );
