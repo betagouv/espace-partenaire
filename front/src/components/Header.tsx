@@ -33,7 +33,7 @@ function Header() {
         {
           iconId: 'fr-icon-github-fill',
           linkProps: {
-            to: '#',
+            to: 'https://github.com/betagouv/espace-partenaire',
           },
           text: 'Github',
         },
