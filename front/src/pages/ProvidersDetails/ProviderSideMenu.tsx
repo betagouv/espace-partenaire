@@ -1,4 +1,5 @@
 import { SideMenu as MuiSideMenu } from '@codegouvfr/react-dsfr/SideMenu';
+import { GlobalStyles } from 'tss-react';
 
 const MENU_WIDTH = 300;
 
@@ -10,6 +11,13 @@ export const SideMenu = () => {
         width: MENU_WIDTH,
       }}
     >
+      <GlobalStyles
+        styles={{
+          html: {
+            scrollBehavior: 'smooth',
+          },
+        }}
+      />
       <MuiSideMenu
         align="left"
         burgerMenuButtonText="Dans cette rubrique"
