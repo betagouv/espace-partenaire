@@ -5,7 +5,7 @@ export class AppService {
   getHello(): string {
     return 'Bonjour, bienvenue dans votre nouvel espace partenaires';
   }
-  getList(): Array<any> {
+  getList(): Array<{ title: string; description: string }> {
     return [
       { title: 'AgentConnect0', description: 'blablabla' },
       { title: 'AgentConnect2', description: 'blablabla' },
