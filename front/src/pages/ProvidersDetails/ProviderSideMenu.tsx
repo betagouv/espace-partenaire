@@ -1,16 +1,9 @@
 import { SideMenu as MuiSideMenu } from '@codegouvfr/react-dsfr/SideMenu';
 import { GlobalStyles } from 'tss-react';
 
-const MENU_WIDTH = 300;
-
 export const SideMenu = () => {
   return (
-    <div
-      className="fr-col-12 fr-col-md-3"
-      style={{
-        width: MENU_WIDTH,
-      }}
-    >
+    <div className="fr-col-12 fr-col-md-3">
       <GlobalStyles
         styles={{
           html: {
@@ -18,49 +11,52 @@ export const SideMenu = () => {
           },
         }}
       />
-      <MuiSideMenu
-        align="left"
-        burgerMenuButtonText="Dans cette rubrique"
-        items={[
-          {
-            isActive: true,
-            linkProps: {
-              to: '#description',
+      <div className="container">
+        <MuiSideMenu
+          // align="left"
+          burgerMenuButtonText="Dans cette rubrique"
+          sticky
+          items={[
+            {
+              isActive: true,
+              linkProps: {
+                to: '#description',
+              },
+              text: 'Description',
             },
-            text: 'Description',
-          },
-          {
-            linkProps: {
-              to: '#keys',
+            {
+              linkProps: {
+                to: '#keys',
+              },
+              text: 'Clés',
             },
-            text: 'Clés',
-          },
-          {
-            linkProps: {
-              to: '#url',
+            {
+              linkProps: {
+                to: '#url',
+              },
+              text: 'URL',
             },
-            text: 'URL',
-          },
-          {
-            linkProps: {
-              to: '#scopes',
+            {
+              linkProps: {
+                to: '#scopes',
+              },
+              text: 'Champs',
             },
-            text: 'Champs',
-          },
-          {
-            linkProps: {
-              to: '#save',
+            {
+              linkProps: {
+                to: '#save',
+              },
+              text: 'Sauvegarde',
             },
-            text: 'Sauvegarde',
-          },
-          {
-            linkProps: {
-              to: '#authorization',
+            {
+              linkProps: {
+                to: '#authorization',
+              },
+              text: 'Habilitation',
             },
-            text: 'Habilitation',
-          },
-        ]}
-      />
+          ]}
+        />
+      </div>
     </div>
   );
 };
