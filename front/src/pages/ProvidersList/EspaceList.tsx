@@ -1,6 +1,6 @@
-import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
+import { api } from '../../lib/api';
 
 type listType = Array<{ title: string; description: string }>;
 
@@ -8,9 +8,15 @@ export const EspaceList = () => {
   const [list, setList] = useState<listType>([]);
 
   React.useEffect(() => {
-    axios.get('http://localhost:3000/list').then((response) => {
-      setList(response.data);
-    });
+    async function fetchData() {
+      try {
+        const data = await api.getList();
+        setList(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    fetchData();
   }, []);
 
   return (
