@@ -8,6 +8,8 @@ const dataSource = new DataSource({
   username: config.DATABASE_USERNAME,
   password: config.DATABASE_PASSWORD,
   database: config.DATABASE_NAME,
+  entities: [__dirname + '/**/*.entity{.ts,.js}'],
+  synchronize: config.DATA_SYNCHRONIZE,
 });
 
 export { dataSource };

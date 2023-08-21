@@ -10,6 +10,9 @@ const config = {
   DATABASE_PORT: process.env.DATABASE_PORT
     ? Number(process.env.DATABASE_PORT)
     : 5432,
+  DATA_SYNCHRONIZE: process.env.DATA_SYNCHRONIZE
+    ? Boolean(process.env.DATA_SYNCHRONIZE)
+    : false,
 };
 
 export { config };
