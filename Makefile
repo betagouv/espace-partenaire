@@ -19,3 +19,6 @@ restart r: stop start
 
 logs l:
 	$(DOCKER_COMPOSE) logs -f
+
+bash-backend bb:
+	${DOCKER_COMPOSE} run backend bash
