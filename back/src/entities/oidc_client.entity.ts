@@ -14,7 +14,7 @@ export class Oidc_client {
   @PrimaryGeneratedColumn('uuid')
   id: number;
 
-  @Column({ length: 500 })
+  @Column({ length: 500, nullable: true })
   clientDescription: string | null;
 
   @CreateDateColumn({
@@ -30,37 +30,37 @@ export class Oidc_client {
   })
   public updated_at: Date;
 
-  @Column()
+  @Column({ nullable: false })
   client_name: string;
 
-  @Column({ unique: true })
+  @Column({ unique: false })
   client_id: string;
 
-  @Column()
+  @Column({ nullable: false })
   client_secret: string;
 
-  @Column('simple-array')
+  @Column('simple-array', { nullable: true })
   redirect_uris: string[] | null;
 
-  @Column('simple-array')
+  @Column('simple-array', { nullable: true })
   post_logout_redirect_uris: string[] | null;
 
-  @Column('simple-array')
+  @Column('simple-array', { nullable: true })
   scope: string[] | null;
 
-  @Column()
+  @Column({ nullable: true })
   client_uri: string | null;
 
-  @Column()
+  @Column({ nullable: true })
   userinfo_signed_response_alg: string | null;
 
-  @Column()
+  @Column({ nullable: true })
   id_token_signed_response_alg: string | null;
 
-  @Column()
+  @Column({ nullable: true })
   authorization_signed_response_alg: string | null;
 
-  @Column()
+  @Column({ nullable: true })
   introspection_signed_response_alg: string | null;
 
   @ManyToMany(() => Oidc_group)
