@@ -40,28 +40,28 @@ export class Oidc_client {
   client_secret: string;
 
   @Column('simple-array')
-  redirect_uris: string[];
+  redirect_uris: string[] | null;
 
   @Column('simple-array')
-  post_logout_redirect_uris: string[];
+  post_logout_redirect_uris: string[] | null;
 
   @Column('simple-array')
-  scope: string[];
+  scope: string[] | null;
 
   @Column()
   client_uri: string | null;
 
   @Column()
-  userinfo_signed_response_alg: string;
+  userinfo_signed_response_alg: string | null;
 
   @Column()
-  id_token_signed_response_alg: string;
+  id_token_signed_response_alg: string | null;
 
   @Column()
-  authorization_signed_response_alg: string;
+  authorization_signed_response_alg: string | null;
 
   @Column()
-  introspection_signed_response_alg: string;
+  introspection_signed_response_alg: string | null;
 
   @ManyToMany(() => Oidc_group)
   @JoinTable()
