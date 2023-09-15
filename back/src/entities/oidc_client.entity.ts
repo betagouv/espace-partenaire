@@ -33,20 +33,20 @@ export class Oidc_client {
   @Column({ nullable: false })
   client_name: string;
 
-  @Column({ unique: false })
+  @Column({ unique: true, nullable: false })
   client_id: string;
 
   @Column({ nullable: false })
   client_secret: string;
 
-  @Column('simple-array', { nullable: true })
-  redirect_uris: string[] | null;
+  @Column('simple-array')
+  redirect_uris: string[];
 
-  @Column('simple-array', { nullable: true })
-  post_logout_redirect_uris: string[] | null;
+  @Column('simple-array')
+  post_logout_redirect_uris: string[];
 
-  @Column('simple-array', { nullable: true })
-  scope: string[] | null;
+  @Column('simple-array')
+  scope: string[];
 
   @Column({ nullable: true })
   client_uri: string | null;
