@@ -1,4 +1,4 @@
-import { KeysGenerator } from '../../src/keys/KeysGenerator';
+import { KeysGenerator } from '../../src/keys/keys-generator';
 
 describe('KeyGenerator', () => {
   let keysGenerator: KeysGenerator;

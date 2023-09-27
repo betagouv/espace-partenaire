@@ -12,8 +12,8 @@ start start-back sb:
 stop:
 	${DOCKER_COMPOSE} stop
 
-start-front sf: 
-	cd front && npm run start
+start-front sf:
+	cd front && npm run dev
 
 restart r: stop start
 
@@ -22,3 +22,6 @@ logs l:
 
 bash-backend bb:
 	${DOCKER_COMPOSE} run backend bash
+
+test-back tb:
+	${DOCKER_COMPOSE} exec backend npm run test 
