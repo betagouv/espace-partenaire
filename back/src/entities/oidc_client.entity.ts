@@ -10,7 +10,7 @@ import {
 import { Oidc_group } from './oidc_group.entity';
 
 @Entity()
-export class Oidc_client {
+export class OidcClient {
   @PrimaryGeneratedColumn('uuid')
   id: number;
 
