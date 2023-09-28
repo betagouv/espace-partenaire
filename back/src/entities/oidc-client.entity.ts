@@ -7,7 +7,7 @@ import {
   ManyToMany,
   JoinTable,
 } from 'typeorm';
-import { Oidc_group } from './oidc_group.entity';
+import { Oidc_group } from './oidc-group.entity';
 
 @Entity()
 export class OidcClient {
@@ -15,7 +15,7 @@ export class OidcClient {
   id: number;
 
   @Column({ length: 500, nullable: true })
-  clientDescription: string | null;
+  client_description: string | null;
 
   @CreateDateColumn({
     type: 'timestamp',
