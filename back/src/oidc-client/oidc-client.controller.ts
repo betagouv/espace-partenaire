@@ -9,7 +9,6 @@ export class OidcClientController {
   }
   @Post()
   async create(@Body() createOidcClientDto: CreateOidcClientDto) {
-    console.log(createOidcClientDto.clientDescription);
     return this.oidcClientSaver.save(createOidcClientDto);
   }
 }

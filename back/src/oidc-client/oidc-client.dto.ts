@@ -14,5 +14,7 @@ export class CreateOidcClientDto {
 
   redirectUris: string[] = [];
 
+  postLogoutRedirectUris: string[] = [];
+
   scope: string[] = [];
 }
