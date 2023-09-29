@@ -1,4 +1,10 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  HttpException,
+  HttpStatus,
+  Post,
+} from '@nestjs/common';
 import { CreateOidcClientDto } from './oidc-client.dto';
 import { OidcClientSaver } from './oidc-client.saver';
 
@@ -9,6 +15,20 @@ export class OidcClientController {
   }
   @Post()
   async create(@Body() createOidcClientDto: CreateOidcClientDto) {
-    return this.oidcClientSaver.save(createOidcClientDto);
+    try {
+      return this.oidcClientSaver.save(createOidcClientDto);
+    } catch (error) {
+      console.log('ERROR', error);
+      throw new HttpException(
+        {
+          status: HttpStatus.FORBIDDEN,
+          error: 'This is a custom message',
+        },
+        HttpStatus.FORBIDDEN,
+        {
+          cause: error,
+        }
+      );
+    }
   }
 }
