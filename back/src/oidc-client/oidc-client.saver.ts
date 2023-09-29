@@ -8,18 +8,27 @@ export class OidcClientSaver {
     @InjectRepository(OidcClient)
     private oidcClientRepository: Repository<OidcClient>
   ) {}
+
+  private hydrate = (dto: CreateOidcClientDto): OidcClient => {
+    const oidcClient = new OidcClient();
+    oidcClient.client_description = dto.clientDescription;
+    oidcClient.client_id = dto.clientId;
+    oidcClient.client_secret = dto.clientSecret;
+    oidcClient.client_name = dto.clientName;
+    oidcClient.redirect_uris = dto.redirectUris;
+    oidcClient.post_logout_redirect_uris = dto.postLogoutRedirectUris;
+    oidcClient.scope = dto.scope;
+    return oidcClient;
+  };
+
   save = (createOidcClientDto: CreateOidcClientDto): CreateOidcClientDto => {
-    const myOidcClient = new OidcClient();
-    myOidcClient.client_id = createOidcClientDto.clientId;
-    myOidcClient.client_secret = createOidcClientDto.clientSecret;
-    myOidcClient.client_name = createOidcClientDto.clientName;
-    myOidcClient.redirect_uris = createOidcClientDto.redirectUris;
-    myOidcClient.post_logout_redirect_uris =
-      createOidcClientDto.postLogoutRedirectUris;
-    myOidcClient.scope = createOidcClientDto.scope;
-
-    this.oidcClientRepository.save(myOidcClient);
-
-    return createOidcClientDto;
+    try {
+      const oidcClient = this.hydrate(createOidcClientDto);
+      this.oidcClientRepository.save(oidcClient);
+      return createOidcClientDto;
+    } catch (error) {
+      console.error(error);
+      throw new Error(`Une erreur s'est produite lors de la création.`);
+    }
   };
 }
