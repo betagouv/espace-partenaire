@@ -9,8 +9,9 @@ export class OidcClientSaver {
     private oidcClientRepository: Repository<OidcClient>
   ) {}
 
-  private hydrate = (dto: CreateOidcClientDto): OidcClient => {
-    const oidcClient = new OidcClient();
+  oidcClient = new OidcClient();
+
+  private hydrate = (dto: CreateOidcClientDto, oidcClient): OidcClient => {
     oidcClient.client_description = dto.clientDescription;
     oidcClient.client_id = dto.clientId;
     oidcClient.client_secret = dto.clientSecret;
@@ -21,14 +22,11 @@ export class OidcClientSaver {
     return oidcClient;
   };
 
-  save = (createOidcClientDto: CreateOidcClientDto): CreateOidcClientDto => {
-    try {
-      const oidcClient = this.hydrate(createOidcClientDto);
-      this.oidcClientRepository.save(oidcClient);
-      return createOidcClientDto;
-    } catch (error) {
-      console.error(error);
-      throw new Error(`Une erreur s'est produite lors de la création.`);
-    }
+  save = async (
+    createOidcClientDto: CreateOidcClientDto
+  ): Promise<CreateOidcClientDto> => {
+    const oidcClient = this.hydrate(createOidcClientDto, this.oidcClient);
+    await this.oidcClientRepository.save(oidcClient);
+    return createOidcClientDto;
   };
 }
