@@ -16,9 +16,8 @@ export class OidcClientController {
   @Post()
   async create(@Body() createOidcClientDto: CreateOidcClientDto) {
     try {
-      return this.oidcClientSaver.save(createOidcClientDto);
+      return await this.oidcClientSaver.save(createOidcClientDto);
     } catch (error) {
-      console.log('ERROR', error);
       throw new HttpException(
         {
           status: HttpStatus.FORBIDDEN,
