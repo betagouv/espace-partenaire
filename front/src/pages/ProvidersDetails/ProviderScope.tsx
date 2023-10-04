@@ -1,9 +1,16 @@
 import Title2 from '../../components/Title2';
 import { makeStyles } from 'tss-react/dsfr';
 import { Checkbox } from '@codegouvfr/react-dsfr/Checkbox';
+import { useState } from 'react';
 
 export const ProviderScope = () => {
+  const [scope, setScope] = useState<String[]>([]);
+
   const { classes, cx } = useStyles();
+
+  const test = () => {
+    console.log('salut bg');
+  };
 
   return (
     <div className="fr-mb-10v">
@@ -21,19 +28,22 @@ export const ProviderScope = () => {
       </div>
       <Checkbox
         legend="Choix des champs"
+        onChange={test}
         options={[
           {
             label: 'Nom',
             nativeInputProps: {
               name: 'checkboxes-1',
-              value: 'value1',
+              value: 'firstname',
+              onChange: { test },
             },
           },
           {
             label: 'Prénom',
             nativeInputProps: {
               name: 'checkboxes-1',
-              value: 'value2',
+              value: 'lastname',
+              onChange: { test },
             },
           },
           {
@@ -41,6 +51,7 @@ export const ProviderScope = () => {
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'value3',
+              onChange: { test },
             },
           },
           {
@@ -48,13 +59,15 @@ export const ProviderScope = () => {
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'value3',
+              onChange: { test },
             },
           },
           {
             label: 'Email professionnel',
             nativeInputProps: {
               name: 'checkboxes-1',
-              value: 'value3',
+              value: 'email',
+              onChange: { test },
             },
           },
         ]}
