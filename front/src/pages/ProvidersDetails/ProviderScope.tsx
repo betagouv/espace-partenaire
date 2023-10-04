@@ -28,14 +28,13 @@ export const ProviderScope = () => {
       </div>
       <Checkbox
         legend="Choix des champs"
-        onChange={test}
         options={[
           {
             label: 'Nom',
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'firstname',
-              onChange: { test },
+              onChange: test,
             },
           },
           {
@@ -43,7 +42,7 @@ export const ProviderScope = () => {
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'lastname',
-              onChange: { test },
+              onChange: test,
             },
           },
           {
@@ -51,7 +50,7 @@ export const ProviderScope = () => {
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'value3',
-              onChange: { test },
+              onChange: test,
             },
           },
           {
@@ -59,7 +58,7 @@ export const ProviderScope = () => {
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'value3',
-              onChange: { test },
+              onChange: test,
             },
           },
           {
@@ -67,7 +66,7 @@ export const ProviderScope = () => {
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'email',
-              onChange: { test },
+              onChange: test,
             },
           },
         ]}
