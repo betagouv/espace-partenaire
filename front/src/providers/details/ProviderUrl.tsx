@@ -18,8 +18,6 @@ export const ProviderUrl = () => {
     }
   };
 
-  console.log(stringArray);
-
   return (
     <div className="fr-mb-10v">
       <Title2 title="URL" id="url" />

@@ -12,9 +12,6 @@ start start-back sb:
 stop:
 	${DOCKER_COMPOSE} stop
 
-start-front-legacy sfl: 
-	cd front && npm run start
-
 start-front sf:
 	cd front && npm run dev
 
