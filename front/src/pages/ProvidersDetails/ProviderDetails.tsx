@@ -1,5 +1,4 @@
 import Title1 from '../../components/Title1';
-import { makeStyles } from 'tss-react/dsfr';
 import { Button } from '@codegouvfr/react-dsfr/Button';
 import { SideMenu } from './ProviderSideMenu';
 import { ProviderDescription } from './ProviderDescription';
@@ -30,7 +29,7 @@ export function ProviderDetails() {
   //   postLogoutRedirectUris: [],
   //   scope: [],
   // });
-  const { classes, cx } = useStyles();
+  // const { classes, cx } = useStyles();
 
   return (
     <div className="fr-container">
@@ -39,7 +38,8 @@ export function ProviderDetails() {
         Cette page vous permet de configurer vos test d'intégration du bouton
         MonComptePro !
       </p>
-      <div className={`${cx(classes.root)} fr-py-6v fr-px-4v`}>
+      {/* <div className={`${cx(classes.root)} fr-py-6v fr-px-4v`}> */}
+      <div className={`fr-py-6v fr-px-4v`}>
         <p>
           <b>Documentation</b>
         </p>
@@ -69,8 +69,8 @@ export function ProviderDetails() {
   );
 }
 
-const useStyles = makeStyles()((theme) => ({
-  root: {
-    backgroundColor: theme.decisions.background.alt.blueFrance.default,
-  },
-}));
+// const useStyles = makeStyles()((theme) => ({
+//   root: {
+//     backgroundColor: theme.decisions.background.alt.blueFrance.default,
+//   },
+// }));

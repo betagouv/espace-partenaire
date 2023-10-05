@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { KeysGenerator } from './keys/KeysGenerator';
+import { KeysGenerator } from './keys/keys-generator';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { config } from './config';
 import { OidcClientModule } from './oidc-client/oidc-client.module';
+import { KeysModule } from './keys/keys.module';
 
 const dataSource: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -17,7 +18,7 @@ const dataSource: TypeOrmModuleOptions = {
 };
 
 @Module({
-  imports: [TypeOrmModule.forRoot(dataSource), OidcClientModule],
+  imports: [TypeOrmModule.forRoot(dataSource), OidcClientModule, KeysModule],
   controllers: [AppController],
   providers: [KeysGenerator],
 })

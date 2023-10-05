@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@codegouvfr/react-dsfr": "^0.73.5",
+    "@codegouvfr/react-dsfr": "^0.77.2",
     "@emotion/react": "^11.11.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -14,6 +14,7 @@
     "@types/react-dom": "^18.2.7",
     "axios": "^1.4.0",
     "crypto-browserify": "^3.12.0",
+    "dotenv": "^16.3.1",
     "path-browserify": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

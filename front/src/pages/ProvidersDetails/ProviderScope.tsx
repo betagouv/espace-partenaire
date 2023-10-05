@@ -1,12 +1,12 @@
 import Title2 from '../../components/Title2';
-import { makeStyles } from 'tss-react/dsfr';
+// import { makeStyles } from 'tss-react/dsfr';
 import { Checkbox } from '@codegouvfr/react-dsfr/Checkbox';
 import { ChangeEvent, useState } from 'react';
 
 export const ProviderScope = () => {
   const [scope, setScope] = useState<String[]>([]);
 
-  const { classes, cx } = useStyles();
+  // const { classes, cx } = useStyles();
 
   const test = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
@@ -22,7 +22,8 @@ export const ProviderScope = () => {
   return (
     <div className="fr-mb-10v">
       <Title2 title="Champs" id="scopes" />
-      <div className={`${cx(classes.root)} fr-container--fluid fr-mb-5v`}>
+      {/* <div className={`${cx(classes.root)} fr-container--fluid fr-mb-5v`}> */}
+      <div className={`fr-container--fluid fr-mb-5v`}>
         <div className="fr-grid-row fr-grid-row--middle fr-p-5v">
           <p className="fr-col-1 fr-display--xs fr-mb-0">💡</p>
           <p className="fr-col-11 fr-mb-0">
@@ -75,8 +76,8 @@ export const ProviderScope = () => {
   );
 };
 
-const useStyles = makeStyles()((theme) => ({
-  root: {
-    backgroundColor: theme.decisions.background.alt.blueFrance.default,
-  },
-}));
+// const useStyles = makeStyles()((theme) => ({
+//   root: {
+//     backgroundColor: theme.decisions.background.alt.blueFrance.default,
+//   },
+// }));

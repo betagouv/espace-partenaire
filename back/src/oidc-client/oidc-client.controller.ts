@@ -8,7 +8,7 @@ import {
 import { CreateOidcClientDto } from './oidc-client.dto';
 import { OidcClientSaver } from './oidc-client.saver';
 
-@Controller('oidc-client')
+@Controller('oidc-clients')
 export class OidcClientController {
   constructor(private readonly oidcClientSaver: OidcClientSaver) {
     this.oidcClientSaver = oidcClientSaver;
