@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const api = {
+const backendClient = {
   getKeys,
   getList,
 };
@@ -15,4 +15,4 @@ async function getList() {
   return response.data;
 }
 
-export { api };
+export { backendClient };
