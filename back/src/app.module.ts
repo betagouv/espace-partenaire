@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { KeysGenerator } from './keys/KeysGenerator';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { config } from './config';
@@ -20,6 +19,6 @@ const dataSource: TypeOrmModuleOptions = {
 @Module({
   imports: [TypeOrmModule.forRoot(dataSource), OidcClientModule],
   controllers: [AppController],
-  providers: [AppService, KeysGenerator],
+  providers: [KeysGenerator],
 })
 export class AppModule {}

@@ -7,7 +7,7 @@ import {
   ManyToMany,
   JoinTable,
 } from 'typeorm';
-import { Oidc_group } from './oidc-group.entity';
+import { Oidc_group } from '../oidc-group/oidc-group.entity';
 
 @Entity()
 export class OidcClient {

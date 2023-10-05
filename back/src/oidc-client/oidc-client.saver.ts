@@ -1,6 +1,6 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateOidcClientDto } from './oidc-client.dto';
-import { OidcClient } from 'src/entities/oidc-client.entity';
+import { OidcClient } from './oidc-client.entity';
 import { Repository } from 'typeorm';
 
 export class OidcClientSaver {
