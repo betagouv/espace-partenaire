@@ -1,17 +1,24 @@
 import Title2 from '../../components/Title2';
 import { makeStyles } from 'tss-react/dsfr';
 import { Checkbox } from '@codegouvfr/react-dsfr/Checkbox';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 export const ProviderScope = () => {
   const [scope, setScope] = useState<String[]>([]);
 
   const { classes, cx } = useStyles();
 
-  const test = () => {
-    console.log('salut bg');
+  const test = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      setScope([...scope, e.target.value]);
+    } else {
+      setScope(
+        scope?.filter((s) => {
+          return s !== e.target.value;
+        })
+      );
+    }
   };
-
   return (
     <div className="fr-mb-10v">
       <Title2 title="Champs" id="scopes" />
@@ -49,15 +56,7 @@ export const ProviderScope = () => {
             label: 'Fonction au sein de l’organisation',
             nativeInputProps: {
               name: 'checkboxes-1',
-              value: 'value3',
-              onChange: test,
-            },
-          },
-          {
-            label: 'Fonction au sein de l’organisation',
-            nativeInputProps: {
-              name: 'checkboxes-1',
-              value: 'value3',
+              value: 'function-in-organization',
               onChange: test,
             },
           },

@@ -8,8 +8,28 @@ import { ProviderUrl } from './ProviderUrl';
 import { ProviderScope } from './ProviderScope';
 import { ProviderSave } from './ProviderSave';
 import { ProviderAuthorization } from './ProviderAuthorization';
+import { ProviderUrlDeco } from './ProviderUrlDeco';
+
+export type BaseClientOidc = {
+  clientName: string;
+  clientDescription: string;
+  clientId: string;
+  clientSecret: string;
+  redirectUris: string[];
+  postLogoutRedirectUris: string[];
+  scope: string[];
+};
 
 export function ProviderDetails() {
+  // const [requestData, setRequestData] = useState<BaseClientOidc>({
+  //   clientName: '',
+  //   clientDescription: '',
+  //   clientId: '',
+  //   clientSecret: '',
+  //   redirectUris: [],
+  //   postLogoutRedirectUris: [],
+  //   scope: [],
+  // });
   const { classes, cx } = useStyles();
 
   return (
@@ -38,6 +58,7 @@ export function ProviderDetails() {
             <ProviderDescription></ProviderDescription>
             <ProviderKey></ProviderKey>
             <ProviderUrl></ProviderUrl>
+            <ProviderUrlDeco></ProviderUrlDeco>
             <ProviderScope></ProviderScope>
             <ProviderSave></ProviderSave>
             <ProviderAuthorization></ProviderAuthorization>

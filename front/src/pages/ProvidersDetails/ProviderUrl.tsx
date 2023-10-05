@@ -4,11 +4,21 @@ import { Button } from '@codegouvfr/react-dsfr/Button';
 import { ChangeEvent, useState } from 'react';
 
 export const ProviderUrl = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputUrl, setInputUrl] = useState<string>('');
+  const [stringArray, setStringArray] = useState<string[]>([]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setInputValue(e.target.value);
+    setInputUrl(e.target.value);
   };
+
+  const addUrlInArray = () => {
+    if (inputUrl.trim() !== '') {
+      setStringArray([...stringArray, inputUrl]);
+      setInputUrl('');
+    }
+  };
+
+  console.log(stringArray);
 
   return (
     <div className="fr-mb-10v">
@@ -23,29 +33,35 @@ export const ProviderUrl = () => {
             className="fr-col-md-7 fr-m-1v"
             label="Url du site :"
             nativeInputProps={{
+              value: inputUrl,
               placeholder: 'https://',
               onChange: handleInputChange,
             }}
           />
           <Button
             className="fr-ml-2v fr-mb-1v"
-            // disabled={!inputValue}
-            disabled
-            onClick={function noRefCheck() {}}
+            disabled={!inputUrl}
+            // disabled
+            onClick={addUrlInArray}
           >
             Valider
           </Button>
         </div>
       </div>
-      <Button
-        disabled
+      <ul>
+        {stringArray.map((url, i) => (
+          <li key={i}>{url}</li>
+        ))}
+      </ul>
+      {/* <Button
+        disabled={!inputUrl}
         className="fr-ml-1v fr-mt-4v"
         iconId="fr-icon-add-line"
         onClick={function noRefCheck() {}}
         priority="secondary"
       >
         Ajouter une url
-      </Button>
+      </Button> */}
     </div>
   );
 };
