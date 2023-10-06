@@ -1,7 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from '../../src/app.controller';
-import { AppService } from '../../src/app.service';
-import { KeysGenerator } from '../../src/keys/KeysGenerator';
+import { KeysGenerator } from '../../src/keys/keys-generator';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -9,7 +8,7 @@ describe('AppController', () => {
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       controllers: [AppController],
-      providers: [AppService, KeysGenerator],
+      providers: [KeysGenerator],
     }).compile();
 
     appController = app.get<AppController>(AppController);

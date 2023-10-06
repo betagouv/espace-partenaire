@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { OidcClientSaver } from './oidc-client.saver';
 import { OidcClientController } from './oidc-client.controller';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { OidcClient } from 'src/entities/oidc-client.entity';
+import { OidcClient } from './oidc-client.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([OidcClient])],
