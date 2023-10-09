@@ -18,7 +18,8 @@
     "npm": "^10.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0"
+    "react-router-dom": "^6.16.0",
+    "tss-react": "^4.9.2"
   },
   "devDependencies": {
     "@types/node": "^20.8.2",
