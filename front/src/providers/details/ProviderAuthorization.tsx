@@ -1,14 +1,18 @@
-// import { useStyles } from "tss-react/dsfr";
+// import { makeStyles } from 'tss-react/dsfr';
+import { fr } from '@codegouvfr/react-dsfr';
 import { Button } from '@codegouvfr/react-dsfr/Button';
 import Title2 from '../../titles/Title2';
 
 export const ProviderAuthorization = () => {
-  // const { cx, css } = useStyles();
+  const backgroundBlueFrance =
+    fr.colors.decisions.background.alt.blueFrance.default;
   return (
     <div className="fr-mb-10v">
       <Title2 title="Habilitation" id="authorization" />
-      {/* <div className={`${cx(css.root)} fr-container--fluid fr-mb-5v`}> */}
-      <div className={`fr-container--fluid fr-mb-5v`}>
+      <div
+        className={`fr-container--fluid fr-mb-5v`}
+        style={{ backgroundColor: backgroundBlueFrance }}
+      >
         <div className="fr-grid-row fr-grid-row--middle fr-p-5v">
           <p className="fr-col-1 fr-display--xs fr-mb-0">💡</p>
           <p className="fr-col-11 fr-mb-0">
@@ -21,7 +25,9 @@ export const ProviderAuthorization = () => {
       <Button
         disabled
         iconId="fr-icon-lock-unlock-line"
-        onClick={function noRefCheck() {}}
+        onClick={function noRefCheck() {
+          // TODO: implement function
+        }}
         priority="secondary"
       >
         Label button
@@ -30,7 +36,9 @@ export const ProviderAuthorization = () => {
         disabled
         className="fr-ml-2v"
         iconId="fr-icon-external-link-fill"
-        onClick={function noRefCheck() {}}
+        onClick={function noRefCheck() {
+          // TODO: implement function
+        }}
         priority="secondary"
       >
         Label button
@@ -38,9 +46,3 @@ export const ProviderAuthorization = () => {
     </div>
   );
 };
-
-// const useStyles = makeStyles()((theme) => ({
-//   root: {
-//     backgroundColor: theme.decisions.background.alt.blueFrance.default,
-//   },
-// }));

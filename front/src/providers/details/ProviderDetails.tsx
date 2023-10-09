@@ -8,6 +8,7 @@ import { ProviderSave } from './ProviderSave';
 import { ProviderAuthorization } from './ProviderAuthorization';
 import { ProviderUrlDeco } from './ProviderUrlDeco';
 import Title1 from '../../titles/Title1';
+import { fr } from '@codegouvfr/react-dsfr';
 
 export type BaseClientOidc = {
   clientName: string;
@@ -29,7 +30,9 @@ export function ProviderDetails() {
   //   postLogoutRedirectUris: [],
   //   scope: [],
   // });
-  // const { classes, cx } = useStyles();
+
+  const backgroundBlueFrance =
+    fr.colors.decisions.background.alt.blueFrance.default;
 
   return (
     <div className="fr-container">
@@ -38,13 +41,16 @@ export function ProviderDetails() {
         Cette page vous permet de configurer vos test d'intégration du bouton
         MonComptePro !
       </p>
-      {/* <div className={`${cx(classes.root)} fr-py-6v fr-px-4v`}> */}
-      <div className={`fr-py-6v fr-px-4v`}>
+      <div
+        className={`fr-py-6v fr-px-4v`}
+        style={{ backgroundColor: backgroundBlueFrance }}
+      >
         <p>
-          <b>Documentation</b>
+          <b className={`fr-h6`}>Documentation</b>
         </p>
         <p>
           Retrouvez toutes les informations dont vous avez besoin et nos
+          <br></br>
           guidelines graphiques dans l'espace de documentation.
         </p>
         <Button iconId="fr-icon-book-2-line" priority="secondary">
@@ -68,9 +74,3 @@ export function ProviderDetails() {
     </div>
   );
 }
-
-// const useStyles = makeStyles()((theme) => ({
-//   root: {
-//     backgroundColor: theme.decisions.background.alt.blueFrance.default,
-//   },
-// }));
