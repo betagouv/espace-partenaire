@@ -10,18 +10,8 @@ import { ProviderUrlDeco } from './ProviderUrlDeco';
 import Title1 from '../../titles/Title1';
 import { fr } from '@codegouvfr/react-dsfr';
 import { createContext, useContext, useState } from 'react';
-
-export type BaseClientOidc = {
-  clientName: string;
-  clientDescription: string;
-  clientId: string;
-  clientSecret: string;
-  redirectUris: string[];
-  postLogoutRedirectUris: string[];
-  scope: string[];
-};
-
-const FormDataContext = createContext(null);
+import { BaseClientOidc } from './types';
+import { FormDataContext } from './FormData.context';
 
 export function ProviderDetails() {
   const [formData, setFormData] = useState<BaseClientOidc>({
@@ -38,7 +28,7 @@ export function ProviderDetails() {
     fr.colors.decisions.background.alt.blueFrance.default;
 
   return (
-    <FormDataContext.Provider value={{ formData, setFormData }}>
+    <FormDataContext.Provider value={{ setFormData }}>
       <div className="fr-container">
         <Title1 title="Espace de test" />
         <p>
@@ -78,8 +68,4 @@ export function ProviderDetails() {
       </div>
     </FormDataContext.Provider>
   );
-}
-
-export function useFormData() {
-  return useContext(FormDataContext);
 }
