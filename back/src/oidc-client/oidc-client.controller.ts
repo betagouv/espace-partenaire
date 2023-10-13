@@ -20,10 +20,10 @@ export class OidcClientController {
     } catch (error) {
       throw new HttpException(
         {
-          status: HttpStatus.FORBIDDEN,
-          error: 'This is a custom message',
+          status: HttpStatus.BAD_REQUEST,
+          error: `Error occurs : ${error.message}`,
         },
-        HttpStatus.FORBIDDEN,
+        HttpStatus.BAD_REQUEST,
         {
           cause: error,
         }
