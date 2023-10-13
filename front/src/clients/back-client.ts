@@ -1,8 +1,10 @@
 import axios from 'axios';
+import { OidcClient } from '../types';
 
-const backendClient = {
+export const backendClient = {
   getKeys,
   getList,
+  postOidcClient,
 };
 
 async function getKeys() {
@@ -15,4 +17,9 @@ async function getList() {
   return response.data;
 }
 
-export { backendClient };
+async function postOidcClient(data: OidcClient) {
+  return await axios.post(
+    import.meta.env.VITE_BASE_URL + '/oidc-clients',
+    data
+  );
+}

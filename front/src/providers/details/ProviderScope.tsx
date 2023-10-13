@@ -1,24 +1,31 @@
 import { Checkbox } from '@codegouvfr/react-dsfr/Checkbox';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useContext, useState } from 'react';
 import Title2 from '../../titles/Title2';
 import { fr } from '@codegouvfr/react-dsfr';
+import { OidcClientFormContext } from './oidc-client-form.context';
 
 export const ProviderScope = () => {
   const [scope, setScope] = useState<string[]>([]);
+  const { oidcClientForm, setOidcClientForm } = useContext(
+    OidcClientFormContext
+  );
   const backgroundBlueFrance =
     fr.colors.decisions.background.alt.blueFrance.default;
 
-  const test = (e: ChangeEvent<HTMLInputElement>) => {
+  const getScopes = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
-      setScope([...scope, e.target.value]);
+      // const newScope = setScope((prevScope) => [...prevScope, e.target.value]);
+      setOidcClientForm((prevState: OidcClient) => {
+        const result = { ...prevState, scope: [...scope, e.target.value] };
+        console.log('nzewscopeokdvoizrirzjioerzj', result);
+        return result;
+      });
+      // return newScope;
     } else {
-      setScope(
-        scope?.filter((s) => {
-          return s !== e.target.value;
-        })
-      );
+      setScope((prevScope) => prevScope.filter((s) => s !== e.target.value));
     }
   };
+  console.log(scope);
   return (
     <div className="fr-mb-10v">
       <Title2 title="Champs" id="scopes" />
@@ -44,7 +51,7 @@ export const ProviderScope = () => {
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'firstname',
-              onChange: test,
+              onChange: getScopes,
             },
           },
           {
@@ -52,7 +59,7 @@ export const ProviderScope = () => {
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'lastname',
-              onChange: test,
+              onChange: getScopes,
             },
           },
           {
@@ -60,7 +67,7 @@ export const ProviderScope = () => {
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'function-in-organization',
-              onChange: test,
+              onChange: getScopes,
             },
           },
           {
@@ -68,7 +75,7 @@ export const ProviderScope = () => {
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'email',
-              onChange: test,
+              onChange: getScopes,
             },
           },
         ]}

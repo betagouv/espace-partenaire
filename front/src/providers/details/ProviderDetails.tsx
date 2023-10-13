@@ -9,13 +9,13 @@ import { ProviderAuthorization } from './ProviderAuthorization';
 import { ProviderUrlDeco } from './ProviderUrlDeco';
 import Title1 from '../../titles/Title1';
 import { fr } from '@codegouvfr/react-dsfr';
-import { createContext, useContext, useState } from 'react';
-import { BaseClientOidc } from './types';
-import { FormDataContext } from './FormData.context';
+import { OidcClientFormContext } from './oidc-client-form.context';
+import { OidcClient } from '../../types';
+import { useState } from 'react';
 
 export function ProviderDetails() {
-  const [formData, setFormData] = useState<BaseClientOidc>({
-    clientName: '',
+  const [oidcClientForm, setOidcClientForm] = useState<OidcClient>({
+    clientName: 'hello',
     clientDescription: '',
     clientId: '',
     clientSecret: '',
@@ -28,7 +28,12 @@ export function ProviderDetails() {
     fr.colors.decisions.background.alt.blueFrance.default;
 
   return (
-    <FormDataContext.Provider value={{ setFormData }}>
+    <OidcClientFormContext.Provider
+      value={{
+        oidcClientForm,
+        setOidcClientForm,
+      }}
+    >
       <div className="fr-container">
         <Title1 title="Espace de test" />
         <p>
@@ -60,12 +65,12 @@ export function ProviderDetails() {
               <ProviderUrl></ProviderUrl>
               <ProviderUrlDeco></ProviderUrlDeco>
               <ProviderScope></ProviderScope>
-              <ProviderSave></ProviderSave>
+              <ProviderSave oidcClientForm={oidcClientForm}></ProviderSave>
               <ProviderAuthorization></ProviderAuthorization>
             </div>
           </div>
         </div>
       </div>
-    </FormDataContext.Provider>
+    </OidcClientFormContext.Provider>
   );
 }

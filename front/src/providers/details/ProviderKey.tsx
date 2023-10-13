@@ -1,8 +1,9 @@
 import { Input } from '@codegouvfr/react-dsfr/Input';
 import { Button } from '@codegouvfr/react-dsfr/Button';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { backendClient } from '../../clients/back-client';
 import Title2 from '../../titles/Title2';
+import { OidcClientFormContext } from './oidc-client-form.context';
 
 const copyToClipBoard = (value: string) => {
   navigator.clipboard.writeText(value);
@@ -11,6 +12,8 @@ const copyToClipBoard = (value: string) => {
 export const ProviderKey = () => {
   const [clientID, setClientID] = useState('');
   const [clientSecret, setClientSecret] = useState('');
+
+  const { setOidcClientForm } = useContext(OidcClientFormContext);
 
   React.useEffect(() => {
     async function fetchData() {
@@ -24,6 +27,24 @@ export const ProviderKey = () => {
     }
     fetchData();
   }, []);
+
+  React.useEffect(() => {
+    async function fetchData() {
+      try {
+        setOidcClientForm((prevState: OidcClient) => {
+          console.log('clientcleint', clientID);
+          return {
+            ...prevState,
+            clientId: clientID,
+            clientSecret: clientSecret,
+          };
+        });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    fetchData();
+  }, [clientID, clientSecret]);
 
   return (
     <div className="fr-mb-10v">
