@@ -1,11 +1,13 @@
 import { Input } from '@codegouvfr/react-dsfr/Input';
 import { Button } from '@codegouvfr/react-dsfr/Button';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useContext, useState } from 'react';
 import Title2 from '../../titles/Title2';
+import { OidcClientFormContext } from './oidc-client-form.context';
 
 export const ProviderUrl = () => {
   const [inputUrl, setInputUrl] = useState<string>('');
   const [stringArray, setStringArray] = useState<string[]>([]);
+  const { setOidcClientForm } = useContext(OidcClientFormContext);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setInputUrl(e.target.value);
@@ -14,6 +16,15 @@ export const ProviderUrl = () => {
   const addUrlInArray = () => {
     if (inputUrl.trim() !== '') {
       setStringArray([...stringArray, inputUrl]);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      setOidcClientForm((prevState: OidcClient) => {
+        const urlArray = {
+          ...prevState,
+          redirectUris: [...stringArray, inputUrl],
+        };
+        return urlArray;
+      });
       setInputUrl('');
     }
   };

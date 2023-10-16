@@ -7,9 +7,14 @@ import { OidcClient } from '../../types';
 export const ProviderDescription = () => {
   const { setOidcClientForm } = useContext(OidcClientFormContext);
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement>,
+    inputName: string
+  ) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     setOidcClientForm((prevState: OidcClient) => {
-      return { ...prevState, clientDescription: e.target.value };
+      return { ...prevState, [inputName]: e.target.value };
     });
   };
   return (
@@ -18,7 +23,15 @@ export const ProviderDescription = () => {
       <Input
         label="Nom du projet"
         nativeInputProps={{
-          onChange: handleInputChange,
+          onChange: (e) => handleInputChange(e, 'clientName'),
+        }}
+      />
+      <Input
+        label="Decription du projet"
+        className="fr-"
+        id="textArea"
+        nativeInputProps={{
+          onChange: (e) => handleInputChange(e, 'clientDescription'),
         }}
       />
     </div>

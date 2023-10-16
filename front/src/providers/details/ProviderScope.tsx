@@ -1,31 +1,31 @@
 import { Checkbox } from '@codegouvfr/react-dsfr/Checkbox';
-import { ChangeEvent, useContext, useState } from 'react';
+import React, { ChangeEvent, useContext, useState } from 'react';
 import Title2 from '../../titles/Title2';
 import { fr } from '@codegouvfr/react-dsfr';
 import { OidcClientFormContext } from './oidc-client-form.context';
+import { OidcClient } from '../../types';
 
 export const ProviderScope = () => {
   const [scope, setScope] = useState<string[]>([]);
-  const { oidcClientForm, setOidcClientForm } = useContext(
-    OidcClientFormContext
-  );
+  const { setOidcClientForm } = useContext(OidcClientFormContext);
   const backgroundBlueFrance =
     fr.colors.decisions.background.alt.blueFrance.default;
 
   const getScopes = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
-      // const newScope = setScope((prevScope) => [...prevScope, e.target.value]);
-      setOidcClientForm((prevState: OidcClient) => {
-        const result = { ...prevState, scope: [...scope, e.target.value] };
-        console.log('nzewscopeokdvoizrirzjioerzj', result);
-        return result;
-      });
-      // return newScope;
+      setScope((prevScope) => [...prevScope, e.target.value]);
     } else {
       setScope((prevScope) => prevScope.filter((s) => s !== e.target.value));
     }
   };
-  console.log(scope);
+  React.useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    setOidcClientForm((prevState: OidcClient) => {
+      const result = { ...prevState, scope: [...scope] };
+      return result;
+    });
+  }, [scope, setOidcClientForm]);
   return (
     <div className="fr-mb-10v">
       <Title2 title="Champs" id="scopes" />

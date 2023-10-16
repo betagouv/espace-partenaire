@@ -31,8 +31,9 @@ export const ProviderKey = () => {
   React.useEffect(() => {
     async function fetchData() {
       try {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         setOidcClientForm((prevState: OidcClient) => {
-          console.log('clientcleint', clientID);
           return {
             ...prevState,
             clientId: clientID,

@@ -15,7 +15,7 @@ import { useState } from 'react';
 
 export function ProviderDetails() {
   const [oidcClientForm, setOidcClientForm] = useState<OidcClient>({
-    clientName: 'hello',
+    clientName: '',
     clientDescription: '',
     clientId: '',
     clientSecret: '',
@@ -30,7 +30,6 @@ export function ProviderDetails() {
   return (
     <OidcClientFormContext.Provider
       value={{
-        oidcClientForm,
         setOidcClientForm,
       }}
     >
