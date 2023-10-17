@@ -22,3 +22,6 @@ logs l:
 
 bash-backend bb:
 	${DOCKER_COMPOSE} run backend bash
+
+test-back tb:
+	${DOCKER_COMPOSE} exec backend npm run test 

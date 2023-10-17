@@ -1,19 +1,31 @@
+import { OidcClientSaver } from '../../src/oidc-client';
 import { OidcClientController } from '../../src/oidc-client/oidc-client.controller';
 import { CreateOidcClientDto } from '../../src/oidc-client/oidc-client.dto';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('OidcClientController', () => {
-  it('should call oidcClientSaver.save', async () => {
-    const oidcClientSaver = {
-      save: jest.fn(),
-    };
+  let oidcController: OidcClientController;
+  const oidcClientSaverMock = {
+    save: jest.fn(),
+  };
 
-    const controller = new OidcClientController(oidcClientSaver);
+  describe('Create()', () => {
+    beforeEach(async () => {
+      const app: TestingModule = await Test.createTestingModule({
+        controllers: [OidcClientController],
+        providers: [OidcClientSaver],
+      })
+        .overrideProvider(OidcClientSaver)
+        .useValue(oidcClientSaverMock)
+        .compile();
 
-    const createOidcClientDto = new CreateOidcClientDto();
+      oidcController = app.get<OidcClientController>(OidcClientController);
+    });
 
-    await controller.create(createOidcClientDto);
+    it('should call oidcClientSaver.save', async () => {
+      await oidcController.create(new CreateOidcClientDto());
 
-    expect(oidcClientSaver.save).toHaveBeenCalledTimes(1);
+      expect(oidcClientSaverMock.save).toHaveBeenCalledTimes(1);
+    });
   });
 });
