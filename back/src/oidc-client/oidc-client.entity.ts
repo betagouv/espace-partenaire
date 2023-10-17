@@ -12,7 +12,7 @@ import { Oidc_group } from '../oidc-group/oidc-group.entity';
 @Entity()
 export class OidcClient {
   @PrimaryGeneratedColumn('uuid')
-  id: number;
+  id: string;
 
   @Column({ length: 500, nullable: true })
   client_description: string | null;

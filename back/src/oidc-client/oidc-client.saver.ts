@@ -2,6 +2,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CreateOidcClientDto } from './oidc-client.dto';
 import { OidcClient } from './oidc-client.entity';
 import { Repository } from 'typeorm';
+import {v4 as uuidv4} from 'uuid';
 
 export class OidcClientSaver {
   constructor(
@@ -19,6 +20,7 @@ export class OidcClientSaver {
     oidcClient.redirect_uris = dto.redirectUris;
     oidcClient.post_logout_redirect_uris = dto.postLogoutRedirectUris;
     oidcClient.scope = dto.scope;
+    oidcClient.id = uuidv4();
     return oidcClient;
   };
 
