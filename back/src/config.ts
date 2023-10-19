@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import pgConnectionString from 'pg-connection-string';
+import * as pgConnectionString from 'pg-connection-string';
 
 dotenv.config();
 
