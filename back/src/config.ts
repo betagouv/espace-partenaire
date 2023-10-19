@@ -1,6 +1,18 @@
 import * as dotenv from 'dotenv';
+import pgConnectionString from 'pg-connection-string';
 
 dotenv.config();
+
+const databaseConfig: Record<string, string> = {};
+
+if (process.env.DATABASE_URL) {
+  const infos = pgConnectionString.parse(process.env.DATABASE_URL);
+  databaseConfig.DATABASE_NAME = infos.database;
+  databaseConfig.DATABASE_USERNAME = infos.user;
+  databaseConfig.DATABASE_PASSWORD = infos.password;
+  databaseConfig.DATABASE_HOST = infos.host;
+  databaseConfig.DATABASE_PORT = infos.port;
+}
 
 const config = {
   DATABASE_NAME: process.env.DATABASE_NAME || '',
@@ -13,6 +25,7 @@ const config = {
   DATA_SYNCHRONIZE: process.env.DATA_SYNCHRONIZE
     ? Boolean(process.env.DATA_SYNCHRONIZE)
     : false,
+  ...databaseConfig,
 };
 
 export { config };
