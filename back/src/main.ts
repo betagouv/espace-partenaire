@@ -5,6 +5,7 @@ import * as express from 'express';
 import * as cors from 'cors';
 import * as path from 'path';
 import { dataSource } from './dataSource';
+import { config } from './config';
 
 async function bootstrap() {
   console.log('Initializing database...');
@@ -17,8 +18,8 @@ async function bootstrap() {
 
   app.use(cors({ origin: 'http://localhost:3001' }));
 
-  await app.listen(3000, () => {
-    console.log('App listening on port 3000');
+  await app.listen(config.PORT, () => {
+    console.log(`App listening on port ${config.PORT}`);
   });
 }
 bootstrap();
