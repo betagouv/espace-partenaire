@@ -1,17 +1,15 @@
 // import { makeStyles } from 'tss-react/dsfr';
-import { fr } from '@codegouvfr/react-dsfr';
+import { COLORS } from '../../constants';
 import { Button } from '@codegouvfr/react-dsfr/Button';
 import Title2 from '../../titles/Title2';
 
 export const ProviderAuthorization = () => {
-  const backgroundBlueFrance =
-    fr.colors.decisions.background.alt.blueFrance.default;
   return (
     <div className="fr-mb-10v">
       <Title2 title="Habilitation" id="authorization" />
       <div
         className={`fr-container--fluid fr-mb-5v`}
-        style={{ backgroundColor: backgroundBlueFrance }}
+        style={{ backgroundColor: COLORS.infoBackground }}
       >
         <div className="fr-grid-row fr-grid-row--middle fr-p-5v">
           <p className="fr-col-1 fr-display--xs fr-mb-0">💡</p>

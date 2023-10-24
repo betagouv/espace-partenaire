@@ -8,10 +8,10 @@ import { ProviderSave } from './ProviderSave';
 import { ProviderAuthorization } from './ProviderAuthorization';
 import { ProviderUrlDeco } from './ProviderUrlDeco';
 import Title1 from '../../titles/Title1';
-import { fr } from '@codegouvfr/react-dsfr';
 import { OidcClientFormContext } from './oidc-client-form.context';
 import { OidcClient } from '../../types';
 import { useState } from 'react';
+import { COLORS } from '../../constants';
 
 export function ProviderDetails() {
   const [oidcClientForm, setOidcClientForm] = useState<OidcClient>({
@@ -23,9 +23,6 @@ export function ProviderDetails() {
     postLogoutRedirectUris: [],
     scope: [],
   });
-
-  const backgroundBlueFrance =
-    fr.colors.decisions.background.alt.blueFrance.default;
 
   return (
     <OidcClientFormContext.Provider
@@ -41,7 +38,7 @@ export function ProviderDetails() {
         </p>
         <div
           className={`fr-py-6v fr-px-4v`}
-          style={{ backgroundColor: backgroundBlueFrance }}
+          style={{ backgroundColor: COLORS.infoBackground }}
         >
           <p>
             <b className={`fr-h6`}>Documentation</b>

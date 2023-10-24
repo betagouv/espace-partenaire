@@ -1,15 +1,13 @@
 import { Checkbox } from '@codegouvfr/react-dsfr/Checkbox';
 import React, { ChangeEvent, useContext, useState } from 'react';
 import Title2 from '../../titles/Title2';
-import { fr } from '@codegouvfr/react-dsfr';
 import { OidcClientFormContext } from './oidc-client-form.context';
 import { OidcClient } from '../../types';
+import { COLORS } from '../../constants';
 
 export const ProviderScope = () => {
   const [scope, setScope] = useState<string[]>([]);
   const { setOidcClientForm } = useContext(OidcClientFormContext);
-  const backgroundBlueFrance =
-    fr.colors.decisions.background.alt.blueFrance.default;
 
   const getScopes = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
@@ -31,7 +29,7 @@ export const ProviderScope = () => {
       <Title2 title="Champs" id="scopes" />
       <div
         className={`fr-container--fluid fr-mb-5v`}
-        style={{ backgroundColor: backgroundBlueFrance }}
+        style={{ backgroundColor: COLORS.infoBackground }}
       >
         <div className="fr-grid-row fr-grid-row--middle fr-p-5v">
           <p className="fr-col-1 fr-display--xs fr-mb-0">💡</p>

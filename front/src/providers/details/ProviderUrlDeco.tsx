@@ -50,7 +50,6 @@ export const ProviderUrlDeco = () => {
           <Button
             className="fr-ml-2v fr-mb-1v"
             disabled={!inputUrl}
-            // disabled
             onClick={addUrlInArray}
           >
             Valider
@@ -62,15 +61,6 @@ export const ProviderUrlDeco = () => {
           <li key={i}>{url}</li>
         ))}
       </ul>
-      {/* <Button
-        disabled={!inputUrl}
-        className="fr-ml-1v fr-mt-4v"
-        iconId="fr-icon-add-line"
-        onClick={function noRefCheck() {}}
-        priority="secondary"
-      >
-        Ajouter une url
-      </Button> */}
     </div>
   );
 };
