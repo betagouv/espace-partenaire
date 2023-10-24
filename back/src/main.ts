@@ -5,6 +5,7 @@ import { ValidationPipe } from '@nestjs/common';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
+import { config } from './config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -13,8 +14,8 @@ async function bootstrap() {
 
   app.use(cors({ origin: process.env.LOCALHOST_URL }));
 
-  await app.listen(3000, () => {
-    console.log('App listening on port 3000');
+  await app.listen(config.PORT, () => {
+    console.log(`App listening on port ${config.PORT}`);
   });
 }
 bootstrap();
