@@ -1,6 +1,6 @@
 import { Button } from '@codegouvfr/react-dsfr/Button';
 import { SideMenu } from './ProviderSideMenu';
-import { ProviderDescription } from './ProviderDescription';
+// import { ProviderDescription } from './ProviderDescription';
 import { ProviderKey } from './ProviderKey';
 import { ProviderUrl } from './ProviderUrl';
 import { ProviderScope } from './ProviderScope';
@@ -56,7 +56,7 @@ export function ProviderDetails() {
           <div className="fr-grid-row">
             <SideMenu></SideMenu>
             <div className="fr-col-12 fr-col-md">
-              <ProviderDescription></ProviderDescription>
+              {/* <ProviderDescription></ProviderDescription> */}
               <ProviderKey></ProviderKey>
               <ProviderUrl></ProviderUrl>
               <ProviderUrlDeco></ProviderUrlDeco>
