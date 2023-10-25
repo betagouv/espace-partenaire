@@ -12,8 +12,13 @@ const copyToClipBoard = (value: string) => {
 export const ProviderKey = () => {
   const [clientID, setClientID] = useState('');
   const [clientSecret, setClientSecret] = useState('');
+  const [isShown, setIsShown] = useState(false);
 
   const { setOidcClientForm } = useContext(OidcClientFormContext);
+
+  const handleClick = () => {
+    setIsShown((current) => !current);
+  };
 
   React.useEffect(() => {
     async function fetchData() {
@@ -49,47 +54,58 @@ export const ProviderKey = () => {
 
   return (
     <div className="fr-mb-10v">
-      <Title2 title="Clés" id="keys" />
-      <div className="fr-container--fluid">
-        <div className="fr-grid-row fr-grid-row--bottom">
-          <Input
-            disabled
-            className="fr-col-md-7 fr-mb-0"
-            label="ClientID"
-            nativeInputProps={{
-              value: clientID,
-            }}
-          />
-          <Button
-            className="fr-ml-2v"
-            iconId="fr-icon-clipboard-line"
-            onClick={() => copyToClipBoard(clientID)}
-            priority="tertiary"
-          >
-            Copier
-          </Button>
-        </div>
-      </div>
-      <div className="fr-container--fluid">
-        <div className="fr-grid-row fr-grid-row--bottom fr-mt-5v">
-          <Input
-            disabled
-            className="fr-col-md-7 fr-mb-0"
-            label="ClientSecret"
-            nativeInputProps={{
-              value: clientSecret,
-            }}
-          />
-          <Button
-            className="fr-ml-2v"
-            iconId="fr-icon-clipboard-line"
-            onClick={() => copyToClipBoard(clientSecret)}
-            priority="tertiary"
-          >
-            Copier
-          </Button>
-        </div>
-      </div>
+      <Title2 title="Clés de données de test" id="keys" />
+
+      {!isShown && (
+        <Button onClick={handleClick} className="fr-mt-2v">
+          Générer des clientID et clientSecret
+        </Button>
+      )}
+
+      {isShown && (
+        <>
+          <div className="fr-container--fluid">
+            <div className="fr-grid-row fr-grid-row--bottom">
+              <Input
+                disabled
+                className="fr-col-md-7 fr-mb-0"
+                label="ClientID"
+                nativeInputProps={{
+                  value: clientID,
+                }}
+              />
+              <Button
+                className="fr-ml-2v"
+                iconId="fr-icon-clipboard-line"
+                onClick={() => copyToClipBoard(clientID)}
+                priority="tertiary"
+              >
+                Copier
+              </Button>
+            </div>
+          </div>
+          <div className="fr-container--fluid">
+            <div className="fr-grid-row fr-grid-row--bottom fr-mt-5v">
+              <Input
+                disabled
+                className="fr-col-md-7 fr-mb-0"
+                label="ClientSecret"
+                nativeInputProps={{
+                  value: clientSecret,
+                }}
+              />
+              <Button
+                className="fr-ml-2v"
+                iconId="fr-icon-clipboard-line"
+                onClick={() => copyToClipBoard(clientSecret)}
+                priority="tertiary"
+              >
+                Copier
+              </Button>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
