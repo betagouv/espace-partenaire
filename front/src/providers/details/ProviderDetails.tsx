@@ -4,7 +4,7 @@ import { SideMenu } from './ProviderSideMenu';
 import { ProviderKey } from './ProviderKey';
 import { ProviderUrl } from './ProviderUrl';
 import { ProviderScope } from './ProviderScope';
-import { ProviderSave } from './ProviderSave';
+import { KeyProductionData } from './KeyProductionData';
 import { ProviderAuthorization } from './ProviderAuthorization';
 import { ProviderUrlDeco } from './ProviderUrlDeco';
 import Title1 from '../../titles/Title1';
@@ -61,7 +61,9 @@ export function ProviderDetails() {
               <ProviderUrl></ProviderUrl>
               <ProviderUrlDeco></ProviderUrlDeco>
               <ProviderScope></ProviderScope>
-              <ProviderSave oidcClientForm={oidcClientForm}></ProviderSave>
+              <KeyProductionData
+                oidcClientForm={oidcClientForm}
+              ></KeyProductionData>
               <ProviderAuthorization></ProviderAuthorization>
             </div>
           </div>
