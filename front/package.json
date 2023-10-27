@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "postinstall": "copy-dsfr-to-public",
-    "prestart": "only-include-used-icons",
+    "predev": "only-include-used-icons",
     "prebuild": "only-include-used-icons"
   },
   "dependencies": {
