@@ -30,6 +30,7 @@ export const KeyProductionData: React.FC<KeyProductionDataProps> = ({
       >
         Accéder à Datapass
       </Button>
+      <Button className="fr-mt-2v">Accéder à Datapass</Button>
     </div>
   );
 };

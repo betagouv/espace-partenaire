@@ -31,7 +31,7 @@ export const ProviderUrl = () => {
 
   return (
     <div className="fr-mb-10v">
-      <Title2 title="URL" id="url" />
+      <Title2 title="Configuration des URLs" id="url" />
       <p>
         Saisissez l'url de la ou les pages sur lesquelles vous souhaitez
         utiliser le bouton de connexion MonComptePro
@@ -39,8 +39,8 @@ export const ProviderUrl = () => {
       <div className="fr-container--fluid">
         <div className="fr-grid-row fr-grid-row--bottom">
           <Input
-            className="fr-col-md-7 fr-m-1v"
-            label="Url du site :"
+            className="fr-col-md-7 fr-m-1v fr-text--bold"
+            label="URL de la page de connexion :"
             nativeInputProps={{
               value: inputUrl,
               placeholder: 'https://',

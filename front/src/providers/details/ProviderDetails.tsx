@@ -12,6 +12,7 @@ import { OidcClientFormContext } from './oidc-client-form.context';
 import { OidcClient } from '../../types';
 import { useState } from 'react';
 import { COLORS } from '../../constants';
+import CardInfos from '../../card/CardInfos';
 
 export function ProviderDetails() {
   const [oidcClientForm, setOidcClientForm] = useState<OidcClient>({
@@ -36,6 +37,7 @@ export function ProviderDetails() {
           Cette page vous permet de configurer vos test d'intégration du bouton
           MonComptePro !
         </p>
+        <CardInfos></CardInfos>
         <div
           className={`fr-py-6v fr-px-4v`}
           style={{ backgroundColor: COLORS.infoBackground }}

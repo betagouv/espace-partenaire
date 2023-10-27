@@ -106,6 +106,19 @@ export const ProviderKey = () => {
           </div>
         </>
       )}
+      <p className="fr-mt-10v">
+        <b>S'identifier pour sauvergarder les clés</b>
+      </p>
+      <p>✅ la durée de vie des clés deviendra illimitée</p>
+      <p>✅ vous pourrez partager vos clés aux membres de vos équipes</p>
+      <Button
+        iconId="fr-icon-save-3-fill"
+        disabled
+        onClick={function noRefCheck() {}}
+        priority="secondary"
+      >
+        Label button
+      </Button>
     </div>
   );
 };
