@@ -1,6 +1,7 @@
 import { Header as MuiHeader } from '@codegouvfr/react-dsfr/Header';
 
 function Header() {
+  const currentURL = window.location.pathname; // returns the absolute URL of a page
   return (
     <MuiHeader
       brandTop={
@@ -26,7 +27,7 @@ function Header() {
         {
           iconId: 'fr-icon-book-2-fill',
           linkProps: {
-            to: '#',
+            to: '/documentation',
           },
           text: 'Documentation',
         },
@@ -40,6 +41,32 @@ function Header() {
       ]}
       serviceTagline="Espace de test"
       serviceTitle="MonComptePro"
+      navigation={[
+        {
+          isActive: currentURL == '/' ? true : false,
+          linkProps: {
+            to: '/',
+            target: '_self',
+          },
+          text: 'Accueil',
+        },
+        {
+          isActive: currentURL == '/documentation' ? true : false,
+          linkProps: {
+            to: '/documentation',
+            target: '_self',
+          },
+          text: 'Documentation',
+        },
+        {
+          isActive: currentURL == '/details' ? true : false,
+          linkProps: {
+            to: '/details',
+            target: '_self',
+          },
+          text: 'Implémentation',
+        },
+      ]}
     />
   );
 }
