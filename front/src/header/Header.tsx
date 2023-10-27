@@ -1,8 +1,10 @@
-import { Header as MuiHeader } from '@codegouvfr/react-dsfr/Header';
+import { Header as DsfrHeader } from '@codegouvfr/react-dsfr/Header';
+import { headerFooterDisplayItem } from "@codegouvfr/react-dsfr/Display";
+
 
 function Header() {
   return (
-    <MuiHeader
+    <DsfrHeader
       brandTop={
         <>
           Espace
@@ -31,12 +33,13 @@ function Header() {
           text: 'Documentation',
         },
         {
-          iconId: 'fr-icon-github-fill',
+          iconId: 'ri-anticlockwise-fill',
           linkProps: {
             to: 'https://github.com/betagouv/espace-partenaire',
           },
           text: 'Github',
         },
+        headerFooterDisplayItem
       ]}
       serviceTagline="Espace de test"
       serviceTitle="MonComptePro"

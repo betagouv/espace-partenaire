@@ -1,15 +1,39 @@
 // import { makeStyles } from 'tss-react/dsfr';
-import { COLORS } from '../../constants';
+//import { COLORS } from '../../constants';
 import { Button } from '@codegouvfr/react-dsfr/Button';
 import Title2 from '../../titles/Title2';
+import { fr } from "@codegouvfr/react-dsfr";
+import { tss } from "tss-react/dsfr";
+import { useState } from "react";
+import CircularProgress from '@mui/material/CircularProgress';
+import { Divider } from "./Divider";
 
-export const ProviderAuthorization = () => {
+
+type Props ={
+  className?: string;
+};
+
+
+export const ProviderAuthorization = (props: Props) => {
+
+  const { className } = props;
+
+  const [clickCount, setClickCount ]= useState(0);
+
+  const { classes, cx } = useStyles();
+
   return (
-    <div className="fr-mb-10v">
+    <div className={cx(classes.root, className)} onClick={() => setClickCount(clickCount + 1)}>
+      <CircularProgress />
       <Title2 title="Habilitation" id="authorization" />
+      <Divider className={classes.divider} />
       <div
-        className={`fr-container--fluid fr-mb-5v`}
-        style={{ backgroundColor: COLORS.infoBackground }}
+        className={
+          cx(
+            classes.container,
+            fr.cx("fr-container--fluid", "fr-mb-5v")
+          )
+        }
       >
         <div className="fr-grid-row fr-grid-row--middle fr-p-5v">
           <p className="fr-col-1 fr-display--xs fr-mb-0">💡</p>
@@ -44,3 +68,31 @@ export const ProviderAuthorization = () => {
     </div>
   );
 };
+
+const useStyles = tss
+  .withName("ProviderAuthorization")
+  .create(() => ({
+    root: {
+      marginBottom: fr.spacing("10v"),
+      //backgroundColor: fr.colors.decisions.background.actionHigh.redMarianne.default,
+      //border: hasBorder ? `1px solid ${fr.colors.decisions.border.actionHigh.redMarianne.default}` : "none",
+      //backgroundColor: fr.colors.getHex({ isDark }).decisions.background.actionHigh.redMarianne.default,
+      "&:hover": {
+        //backgroundColor: fr.colors.decisions.background.actionHigh.redMarianne.hover
+      },
+      [fr.breakpoints.down("md")]:{
+        border: "1px solid red"
+      },
+      [fr.breakpoints.down("sm")]:{
+        border: "1px solid blue"
+      },
+
+    },
+    divider: {
+      marginBottom: fr.spacing("10v"),
+    },
+    container: {
+      backgroundColor: fr.colors.decisions.background.default.grey.default
+    },
+
+  }));
