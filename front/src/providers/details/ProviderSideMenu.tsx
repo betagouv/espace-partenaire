@@ -1,4 +1,4 @@
-import { SideMenu as MuiSideMenu } from '@codegouvfr/react-dsfr/SideMenu';
+import { SideMenu as DsfrSideMenu } from '@codegouvfr/react-dsfr/SideMenu';
 import { useEffect, useState } from 'react';
 
 export const SideMenu = () => {
@@ -16,7 +16,7 @@ export const SideMenu = () => {
   return (
     <div className="fr-col-12 fr-col-md-3">
       <div className="container">
-        <MuiSideMenu
+        <DsfrSideMenu
           sticky
           burgerMenuButtonText="Dans cette rubrique"
           items={[

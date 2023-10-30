@@ -1,9 +1,9 @@
-import { Header as MuiHeader } from '@codegouvfr/react-dsfr/Header';
+import { Header as DsfrHeader } from '@codegouvfr/react-dsfr/Header';
 
 function Header() {
   const currentURL = window.location.pathname; // returns the absolute URL of a page
   return (
-    <MuiHeader
+    <DsfrHeader
       brandTop={
         <>
           Espace
