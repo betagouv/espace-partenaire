@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
 import { URL } from 'url';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -10,6 +11,7 @@ const __dirname = new URL('.', import.meta.url).pathname;
 function serve() {
   const app = express();
 
+  app.use(cors());
   app.use(express.static(path.join(__dirname, '..', 'dist')));
 
   app.get('/*', (req, res) => {
