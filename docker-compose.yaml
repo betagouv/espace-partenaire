@@ -23,12 +23,12 @@ services:
         - database
 
   backend:
-    build: 
+    build:
       context: ./back
     volumes:
       - ./back:/srv/espace-partenaire/back
     depends_on:
-    - database
+      - database
     ports:
       - "3000:3000"
     expose:
