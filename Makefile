@@ -4,6 +4,9 @@ ps:
 	${DOCKER_COMPOSE} ps
 
 install i:
+	${DOCKER_COMPOSE} up -d --build
+
+install-debug id:
 	${DOCKER_COMPOSE} up --build
 
 start start-back sb:
@@ -19,6 +22,9 @@ restart r: stop start
 
 logs l:
 	$(DOCKER_COMPOSE) logs -f
+
+logs-backend lb:
+	$(DOCKER_COMPOSE) logs -f backend
 
 bash-backend bb:
 	${DOCKER_COMPOSE} run backend bash
