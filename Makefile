@@ -9,7 +9,7 @@ install i:
 install-debug id:
 	${DOCKER_COMPOSE} up --build
 
-start start-back sb:
+start start-back sb s:
 	${DOCKER_COMPOSE} start
 
 stop:
@@ -30,4 +30,7 @@ bash-backend bb:
 	${DOCKER_COMPOSE} run backend bash
 
 test-back tb:
-	${DOCKER_COMPOSE} exec backend npm run test 
+	${DOCKER_COMPOSE} exec backend npm run test
+
+build-front f:
+	cd front && npm run build && rm -rf ../back/front && cp -r dist ../back/front
