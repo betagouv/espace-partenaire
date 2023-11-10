@@ -1,7 +1,8 @@
 # Espace Partenaires
 
-Espace Partenaires est un outil facilitant l'intégration d'un bouton MonComptePro.
-Il permet de gérer les jetons d'accès, le nom et la description du projet, les URLs où apparaitront le bouton de connexion et la demande d'habilitation.
+Espace Partenaires is a tool that makes it easy to integrate a MonComptePro button.
+
+It allows you to manage access tokens, the name and description of the project, the URLs where the login button will appear and the authorization request.
 
 ## Requirements:
 
@@ -11,40 +12,54 @@ Il permet de gérer les jetons d'accès, le nom et la description du projet, les
 
 ## Installation
 
-Installer l'application en local :
+Install locally the application:
 
 ```
 git clone git@github.com:betagouv/espace-partenaire.git
 ```
 
-Copier .env du back
+Copy back .env
 
 ```
 cp back/.env.dist back/.env
 ```
 
-Copier .env du front
+Copy front .env
 
 ```
 cp front/.env.dist front/.env
 ```
 
-Installer le projet :
+Install project:
 
 ```
 make i
 ```
 
-Lancer le projet back-end accessible sur http://localhost:3000/ :
+## Start backend
+
+Launch backend
 
 ```
 make sb
 ```
+You can access the project here : http://localhost:3000/welcome
 
-Lancer le projet front-end accessible sur http://localhost:3001/ :
+If you want to launch a the front served by the backend:
+
+```
+make f
+```
+You can see the static front on http://localhost:3000
+
+## Start front end for dev
+
+Launch the projet with another node server locally (not on docker this time):
 
 ```
 make sf
 ```
+You can access it on http://localhost:3001/ :
+
 
 Enjoy ! ✨
