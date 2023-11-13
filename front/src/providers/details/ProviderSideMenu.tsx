@@ -12,7 +12,6 @@ export const SideMenu = () => {
       window.removeEventListener('hashchange', updateMenuStyle);
     };
   }, []);
-  console.log(currentAnchor);
   return (
     <div className="fr-col-12 fr-col-md-3">
       <div className="container">
