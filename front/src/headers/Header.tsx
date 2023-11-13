@@ -18,18 +18,11 @@ function Header() {
       id="fr-header-simple-header"
       quickAccessItems={[
         {
-          iconId: 'fr-icon-todo-line',
+          iconId: 'fr-icon-user-fill',
           linkProps: {
-            to: '/liste',
+            to: '/connexion',
           },
-          text: 'Liste tests',
-        },
-        {
-          iconId: 'fr-icon-book-2-fill',
-          linkProps: {
-            to: '/documentation',
-          },
-          text: 'Documentation',
+          text: 'Se connecter',
         },
         {
           iconId: 'fr-icon-github-fill',
