@@ -23,14 +23,13 @@ export const KeyProductionData: React.FC<KeyProductionDataProps> = ({
         doit remplir l’habilitation.Il s’agit souvent d’un agent public,
         intrapreneur, etc.
       </p>
+
       <Button
-        iconId="fr-icon-mail-fill"
         onClick={() => backendClient.postOidcClient(oidcClientForm)}
-        priority="secondary"
+        className="fr-mt-2v"
       >
         Accéder à Datapass
       </Button>
-      <Button className="fr-mt-2v">Accéder à Datapass</Button>
     </div>
   );
 };
