@@ -117,7 +117,7 @@ export const ProviderKey = () => {
         onClick={function noRefCheck() {}}
         priority="secondary"
       >
-        Label button
+        Sauvegarder les clés
       </Button>
     </div>
   );
