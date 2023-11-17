@@ -7,6 +7,7 @@ export const EspaceDocumentation = () => {
       <div className="fr-grid-row">
         <DocumentationSideMenu />
         <div className="fr-col-12 fr-col-md">
+          <h1>Documentation</h1>
           <DocumentationContent />
         </div>
       </div>

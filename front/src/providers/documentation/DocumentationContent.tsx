@@ -17,7 +17,7 @@ const jsonData = {
 export const DocumentationContent = () => {
   return (
     <div className="fr-pr-18v">
-      <h1 id="steps">Les étapes d'installation</h1>
+      <h2 id="steps">Les étapes d'installation</h2>
       <p>Je me familiarise avec la cinématique OpenId Connect :</p>
       <ul>
         <li>
@@ -55,7 +55,7 @@ export const DocumentationContent = () => {
         </li>
         <li>Mise en production 🚀</li>
       </ul>
-      <h1 id="requirements">Connaissances préalables</h1>
+      <h2 id="requirements">Connaissances préalables</h2>
       <p>
         La connexion MonComptePro est basée sur le standard OpenID Connect
         également utilisé par FranceConnect. Ce standard peut être complexe à
@@ -70,7 +70,7 @@ export const DocumentationContent = () => {
         <li>La cinématique complète expliquée en 3 minutes par Okta</li>
         <li>Un article qui rentre plus en détail rédigé par la même équipe</li>
       </ul>
-      <h1 id="specifications">Spécifications techniques</h1>
+      <h2 id="specifications">Spécifications techniques</h2>
       <p>
         Afin d'effectuer les développements sur votre service en ligne, nous
         fournissons un environnement de test pour vous permettre d'effectuer des

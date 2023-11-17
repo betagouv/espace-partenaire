@@ -1,17 +1,8 @@
 import { SideMenu as DsfrSideMenu } from '@codegouvfr/react-dsfr/SideMenu';
-import { useEffect, useState } from 'react';
+import { useHash } from '../../hooks/useHash';
 
 export const SideMenu = () => {
-  const [currentAnchor, setCurrentAnchor] = useState(window.location.hash);
-  useEffect(() => {
-    const updateMenuStyle = () => {
-      setCurrentAnchor(window.location.hash);
-    };
-    window.addEventListener('hashchange', updateMenuStyle);
-    return () => {
-      window.removeEventListener('hashchange', updateMenuStyle);
-    };
-  }, []);
+  const [currentAnchor] = useHash();
   return (
     <div className="fr-col-12 fr-col-md-3">
       <div className="container">
