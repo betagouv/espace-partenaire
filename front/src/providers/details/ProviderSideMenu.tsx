@@ -20,35 +20,28 @@ export const SideMenu = () => {
           burgerMenuButtonText="Dans cette rubrique"
           items={[
             {
-              isActive: currentAnchor == '#keys' ? true : false,
+              isActive: currentAnchor === '#keys',
               linkProps: {
                 to: '#keys',
               },
               text: 'Clés',
             },
             {
-              isActive: currentAnchor == '#url' ? true : false,
+              isActive: currentAnchor === '#url',
               linkProps: {
                 to: '#url',
               },
               text: 'URL',
             },
             {
-              isActive: currentAnchor == '#scopes' ? true : false,
+              isActive: currentAnchor === '#scopes',
               linkProps: {
                 to: '#scopes',
               },
               text: 'Données',
             },
             {
-              isActive: currentAnchor == '#save' ? true : false,
-              linkProps: {
-                to: '#save',
-              },
-              text: 'Sauvegarde',
-            },
-            {
-              isActive: currentAnchor == '#authorization' ? true : false,
+              isActive: currentAnchor === '#authorization',
               linkProps: {
                 to: '#authorization',
               },

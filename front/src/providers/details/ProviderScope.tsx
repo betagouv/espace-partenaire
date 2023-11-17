@@ -36,8 +36,8 @@ export const ProviderScope = () => {
           <p className="fr-col-11 fr-mb-0">
             Vous pouvez utiliser tous les paramètres disponibles via
             MonComptePro pendant vos tests. Gardez en mémoire que pour que votre
-            habilitation soit validée, vous devrez utiliser uniquement
-            <b> les données strictement nécessaires</b> à votre service.
+            habilitation soit validée, vous devrez utiliser uniquement&nbsp;
+            <b>les données strictement nécessaires</b> à votre service.
           </p>
         </div>
       </div>

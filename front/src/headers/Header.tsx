@@ -1,7 +1,7 @@
 import { Header as DsfrHeader } from '@codegouvfr/react-dsfr/Header';
 
 function Header() {
-  const currentURL = window.location.pathname; // returns the absolute URL of a page
+  const currentURL = window.location.pathname;
   return (
     <DsfrHeader
       brandTop={
@@ -36,7 +36,7 @@ function Header() {
       serviceTitle="MonComptePro"
       navigation={[
         {
-          isActive: currentURL == '/' ? true : false,
+          isActive: currentURL === '/',
           linkProps: {
             to: '/',
             target: '_self',
@@ -44,7 +44,7 @@ function Header() {
           text: 'Accueil',
         },
         {
-          isActive: currentURL == '/documentation' ? true : false,
+          isActive: currentURL === '/documentation',
           linkProps: {
             to: '/documentation',
             target: '_self',
@@ -52,7 +52,7 @@ function Header() {
           text: 'Documentation',
         },
         {
-          isActive: currentURL == '/details' ? true : false,
+          isActive: currentURL === '/details',
           linkProps: {
             to: '/details',
             target: '_self',

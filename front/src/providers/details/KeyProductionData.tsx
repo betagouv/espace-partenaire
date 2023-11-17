@@ -12,7 +12,7 @@ export const KeyProductionData: React.FC<KeyProductionDataProps> = ({
 }) => {
   return (
     <div className="fr-mb-10v">
-      <Title2 title="Clés des données de production" id="save" />
+      <Title2 title="Clés des données de production" id="authorization" />
       <p>
         Pour accéder aux données de production, il vous faut une habilitation
         juridique sur Datapass. Vous recevrez vos clés de production dès que
@@ -20,7 +20,7 @@ export const KeyProductionData: React.FC<KeyProductionDataProps> = ({
       </p>
       <p>
         Le membre de votre équipe qui représente officiellement l’organisation
-        doit remplir l’habilitation.Il s’agit souvent d’un agent public,
+        doit remplir l’habilitation. Il s’agit souvent d’un agent public,
         intrapreneur, etc.
       </p>
 

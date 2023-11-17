@@ -5,7 +5,7 @@ import { OidcClientFormContext } from './oidc-client-form.context';
 
 export const ProviderUrlDeco = () => {
   const [inputUrl, setInputUrl] = useState<string>('');
-  const [stringArray, setStringArray] = useState<string[]>([]);
+  const [contents, setContents] = useState<string[]>([]);
   const { setOidcClientForm } = useContext(OidcClientFormContext);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -14,13 +14,13 @@ export const ProviderUrlDeco = () => {
 
   const addUrlInArray = () => {
     if (inputUrl.trim() !== '') {
-      setStringArray([...stringArray, inputUrl]);
+      setContents([...contents, inputUrl]);
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       setOidcClientForm((prevState: OidcClient) => {
         const urlDecoArray = {
           ...prevState,
-          postLogoutRedirectUris: [...stringArray, inputUrl],
+          postLogoutRedirectUris: [...contents, inputUrl],
         };
         return urlDecoArray;
       });
@@ -51,7 +51,7 @@ export const ProviderUrlDeco = () => {
         </div>
       </div>
       <ul>
-        {stringArray.map((url, i) => (
+        {contents.map((url, i) => (
           <li key={i}>{url}</li>
         ))}
       </ul>

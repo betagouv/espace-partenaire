@@ -4,7 +4,7 @@ import { FrIconClassName } from '@codegouvfr/react-dsfr';
 
 interface CardInfosProps {
   title: string;
-  stringArray: string[];
+  contents: string[];
   image: string;
   buttonTitle: string;
   icon: FrIconClassName;
@@ -12,7 +12,7 @@ interface CardInfosProps {
 
 function CardInfos({
   title,
-  stringArray,
+  contents,
   image,
   buttonTitle,
   icon,
@@ -24,16 +24,12 @@ function CardInfos({
         className="fr-grid-row fr-grid-row--middle fr-p-10v"
       >
         <div className="fr-content-media__img fr-col-4 fr-hidden fr-unhidden-lg">
-          <img
-            className="fr-responsive-img fr-ratio-1x1"
-            src={image}
-            alt="[À MODIFIER - vide ou texte alternatif de l’image]"
-          />
+          <img className="fr-responsive-img fr-ratio-1x1" src={image} alt="" />
         </div>
         <div className="fr-col-8 fr-pl-5v">
           <h2 style={{ color: COLORS.titleColor }}>{title}</h2>
           <ul className="">
-            {stringArray.map((string, i) => (
+            {contents.map((string, i) => (
               <li key={i}>{string}</li>
             ))}
           </ul>

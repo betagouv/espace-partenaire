@@ -16,7 +16,7 @@ export const ProviderKey = () => {
 
   const { setOidcClientForm } = useContext(OidcClientFormContext);
 
-  const handleClick = () => {
+  const toggleShowClientId = () => {
     setIsShown((current) => !current);
   };
 
@@ -57,7 +57,7 @@ export const ProviderKey = () => {
       <Title2 title="Clés de données de test" id="keys" />
 
       {!isShown && (
-        <Button onClick={handleClick} className="fr-mt-2v">
+        <Button onClick={toggleShowClientId} className="fr-mt-2v">
           Générer des clientID et clientSecret
         </Button>
       )}

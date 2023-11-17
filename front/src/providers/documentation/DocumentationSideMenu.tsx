@@ -20,21 +20,21 @@ export const DocumentationSideMenu = () => {
           burgerMenuButtonText="Dans cette rubrique"
           items={[
             {
-              isActive: currentAnchor == '#keys' ? true : false,
+              isActive: currentAnchor === '#keys',
               linkProps: {
                 to: '#steps',
               },
               text: `Étapes d'installation`,
             },
             {
-              isActive: currentAnchor == '#url' ? true : false,
+              isActive: currentAnchor === '#url',
               linkProps: {
                 to: '#requirements',
               },
               text: 'Connaissances préalables',
             },
             {
-              isActive: currentAnchor == '#scopes' ? true : false,
+              isActive: currentAnchor === '#scopes',
               linkProps: {
                 to: '#specifications',
               },
