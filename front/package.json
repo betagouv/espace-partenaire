@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "postinstall": "copy-dsfr-to-public",
-    "prestart": "only-include-used-icons",
+    "predev": "only-include-used-icons",
     "prebuild": "only-include-used-icons"
   },
   "dependencies": {
@@ -19,20 +19,23 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
-    "tss-react": "^4.9.2",
+    "tss-react": "^4.9.3",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "@mui/material": "^5.14.15",
     "@types/react": "^18.2.37",
     "@types/node": "^20.8.2",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
-    "@vitejs/plugin-react": "^4.0.3"
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
   },
   "devDependencies": {
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "eslint-plugin-react-refresh": "^0.4.3"
   },
   "jest": {
     "transformIgnorePatterns": [

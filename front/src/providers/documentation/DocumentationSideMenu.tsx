@@ -1,7 +1,7 @@
 import { SideMenu as DsfrSideMenu } from '@codegouvfr/react-dsfr/SideMenu';
 import { useHash } from '../../hooks/useHash';
 
-export const SideMenu = () => {
+export const DocumentationSideMenu = () => {
   const [currentAnchor] = useHash();
   return (
     <div className="fr-col-12 fr-col-md-3">
@@ -11,32 +11,25 @@ export const SideMenu = () => {
           burgerMenuButtonText="Dans cette rubrique"
           items={[
             {
-              isActive: currentAnchor === '#keys',
+              isActive: currentAnchor === '#steps',
               linkProps: {
-                to: '#keys',
+                to: '#steps',
               },
-              text: 'Clés',
+              text: `Étapes d'installation`,
             },
             {
-              isActive: currentAnchor === '#url',
+              isActive: currentAnchor === '#requirements',
               linkProps: {
-                to: '#url',
+                to: '#requirements',
               },
-              text: 'URL',
+              text: 'Connaissances préalables',
             },
             {
-              isActive: currentAnchor === '#scopes',
+              isActive: currentAnchor === '#specifications',
               linkProps: {
-                to: '#scopes',
+                to: '#specifications',
               },
-              text: 'Données',
-            },
-            {
-              isActive: currentAnchor === '#authorization',
-              linkProps: {
-                to: '#authorization',
-              },
-              text: 'Habilitation',
+              text: 'Spécifications techniques',
             },
           ]}
         />

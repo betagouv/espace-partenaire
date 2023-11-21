@@ -1,8 +1,8 @@
-import { Footer as MuiFooter } from '@codegouvfr/react-dsfr/Footer';
+import { Footer as DsfrFooter } from '@codegouvfr/react-dsfr/Footer';
 
 function Footer() {
   return (
-    <MuiFooter
+    <DsfrFooter
       accessibility="fully compliant"
       contentDescription=""
       termsLinkProps={{

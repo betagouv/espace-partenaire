@@ -25,8 +25,8 @@ export const ProviderScope = () => {
     });
   }, [scope, setOidcClientForm]);
   return (
-    <div className="fr-mb-10v">
-      <Title2 title="Champs" id="scopes" />
+    <div>
+      <Title2 title="Données à récupérer" id="scopes" />
       <div
         className={`fr-container--fluid fr-mb-5v`}
         style={{ backgroundColor: COLORS.infoBackground }}
@@ -36,7 +36,7 @@ export const ProviderScope = () => {
           <p className="fr-col-11 fr-mb-0">
             Vous pouvez utiliser tous les paramètres disponibles via
             MonComptePro pendant vos tests. Gardez en mémoire que pour que votre
-            habilitation soit validée, vous devrez utiliser uniquement
+            habilitation soit validée, vous devrez utiliser uniquement&nbsp;
             <b>les données strictement nécessaires</b> à votre service.
           </p>
         </div>

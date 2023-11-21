@@ -6,7 +6,7 @@ import { OidcClientFormContext } from './oidc-client-form.context';
 
 export const ProviderUrl = () => {
   const [inputUrl, setInputUrl] = useState<string>('');
-  const [stringArray, setStringArray] = useState<string[]>([]);
+  const [contents, setContents] = useState<string[]>([]);
   const { setOidcClientForm } = useContext(OidcClientFormContext);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -15,13 +15,13 @@ export const ProviderUrl = () => {
 
   const addUrlInArray = () => {
     if (inputUrl.trim() !== '') {
-      setStringArray([...stringArray, inputUrl]);
+      setContents([...contents, inputUrl]);
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       setOidcClientForm((prevState: OidcClient) => {
         const urlArray = {
           ...prevState,
-          redirectUris: [...stringArray, inputUrl],
+          redirectUris: [...contents, inputUrl],
         };
         return urlArray;
       });
@@ -31,7 +31,7 @@ export const ProviderUrl = () => {
 
   return (
     <div className="fr-mb-10v">
-      <Title2 title="URL" id="url" />
+      <Title2 title="Configuration des URLs" id="url" />
       <p>
         Saisissez l'url de la ou les pages sur lesquelles vous souhaitez
         utiliser le bouton de connexion MonComptePro
@@ -39,8 +39,8 @@ export const ProviderUrl = () => {
       <div className="fr-container--fluid">
         <div className="fr-grid-row fr-grid-row--bottom">
           <Input
-            className="fr-col-md-7 fr-m-1v"
-            label="Url du site :"
+            className="fr-col-md-7 fr-m-1v fr-text--bold"
+            label="URL de la page de connexion :"
             nativeInputProps={{
               value: inputUrl,
               placeholder: 'https://',
@@ -57,7 +57,7 @@ export const ProviderUrl = () => {
         </div>
       </div>
       <ul>
-        {stringArray.map((url, i) => (
+        {contents.map((url, i) => (
           <li key={i}>{url}</li>
         ))}
       </ul>
