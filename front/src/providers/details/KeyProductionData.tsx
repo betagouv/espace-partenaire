@@ -1,15 +1,7 @@
 import { Button } from '@codegouvfr/react-dsfr/Button';
 import Title2 from '../../titles/Title2';
-import { backendClient } from '../../clients/back-client';
-import { OidcClient } from '../../types';
 
-interface KeyProductionDataProps {
-  oidcClientForm: OidcClient;
-}
-
-export const KeyProductionData: React.FC<KeyProductionDataProps> = ({
-  oidcClientForm,
-}) => {
+export const KeyProductionData = () => {
   return (
     <div className="fr-mb-10v">
       <Title2 title="Clés des données de production" id="authorization" />
@@ -24,10 +16,7 @@ export const KeyProductionData: React.FC<KeyProductionDataProps> = ({
         intrapreneur, etc.
       </p>
 
-      <Button
-        onClick={() => backendClient.postOidcClient(oidcClientForm)}
-        className="fr-mt-2v"
-      >
+      <Button disabled className="fr-mt-2v">
         Accéder à Datapass
       </Button>
     </div>

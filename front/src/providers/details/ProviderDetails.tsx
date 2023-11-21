@@ -11,6 +11,7 @@ import { useState } from 'react';
 import CardInfos from '../../cards/CardInfos';
 import monImage from '../../images/test-image.png';
 import monImage2 from '../../images/test-image2.png';
+import { ProviderValidation } from './ProviderValidation';
 
 export function ProviderDetails() {
   const [oidcClientForm, setOidcClientForm] = useState<OidcClient>({
@@ -65,7 +66,8 @@ export function ProviderDetails() {
               <ProviderUrl />
               <ProviderUrlDeco />
               <ProviderScope />
-              <KeyProductionData oidcClientForm={oidcClientForm} />
+              <ProviderValidation oidcClientForm={oidcClientForm} />
+              <KeyProductionData />
             </div>
           </div>
         </div>

@@ -25,7 +25,7 @@ export const ProviderScope = () => {
     });
   }, [scope, setOidcClientForm]);
   return (
-    <div className="fr-mb-10v">
+    <div>
       <Title2 title="Données à récupérer" id="scopes" />
       <div
         className={`fr-container--fluid fr-mb-5v`}
