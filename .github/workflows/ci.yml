@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  front:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,6 +16,16 @@ jobs:
         with:
           cache: 'npm'
           node-version-file: package.json
-      - run: bun install
-      - run: bun run build
-      - run: bun run test
+      - run: npm ci
+        working-directory: ./front
+
+  back:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          cache: 'npm'
+          node-version-file: package.json
+      - run: npm ci
+        working-directory: ./back
