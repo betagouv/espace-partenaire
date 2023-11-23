@@ -33,3 +33,5 @@ jobs:
         working-directory: ./back
       - run: npm run build
         working-directory: ./back
+      - run: npm run test
+        working-directory: ./back
