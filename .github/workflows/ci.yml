@@ -1,0 +1,21 @@
+#
+
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          cache: 'npm'
+          node-version-file: package.json
+      - run: bun install
+      - run: bun run build
+      - run: bun run test
