@@ -5,42 +5,40 @@ export const SideMenu = () => {
   const [currentAnchor] = useHash();
   return (
     <div className="fr-col-12 fr-col-md-3">
-      <div className="container">
-        <DsfrSideMenu
-          sticky
-          burgerMenuButtonText="Dans cette rubrique"
-          items={[
-            {
-              isActive: currentAnchor === '#keys',
-              linkProps: {
-                to: '#keys',
-              },
-              text: 'Clés',
+      <DsfrSideMenu
+        sticky
+        burgerMenuButtonText="Dans cette rubrique"
+        items={[
+          {
+            isActive: currentAnchor === '#keys',
+            linkProps: {
+              to: '#keys',
             },
-            {
-              isActive: currentAnchor === '#url',
-              linkProps: {
-                to: '#url',
-              },
-              text: 'URL',
+            text: 'Clés',
+          },
+          {
+            isActive: currentAnchor === '#url',
+            linkProps: {
+              to: '#url',
             },
-            {
-              isActive: currentAnchor === '#scopes',
-              linkProps: {
-                to: '#scopes',
-              },
-              text: 'Données',
+            text: 'URL',
+          },
+          {
+            isActive: currentAnchor === '#scopes',
+            linkProps: {
+              to: '#scopes',
             },
-            {
-              isActive: currentAnchor === '#authorization',
-              linkProps: {
-                to: '#authorization',
-              },
-              text: 'Habilitation',
+            text: 'Données',
+          },
+          {
+            isActive: currentAnchor === '#authorization',
+            linkProps: {
+              to: '#authorization',
             },
-          ]}
-        />
-      </div>
+            text: 'Habilitation',
+          },
+        ]}
+      />
     </div>
   );
 };

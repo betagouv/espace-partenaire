@@ -12,6 +12,7 @@ import CardInfos from '../../cards/CardInfos';
 import monImage from '../../images/test-image.png';
 import monImage2 from '../../images/test-image2.png';
 import { ProviderValidation } from './ProviderValidation';
+import { ProviderName } from './ProviderName';
 
 export function ProviderDetails() {
   const [oidcClientForm, setOidcClientForm] = useState<OidcClient>({
@@ -32,7 +33,7 @@ export function ProviderDetails() {
     >
       <div className="fr-container">
         <Title1 title="Implémentation" />
-        <div className="fr-container--fluid">
+        <div className="fr-container">
           <div className="fr-grid-row fr-grid-row--gutters">
             <CardInfos
               title="Faites vos tests"
@@ -58,10 +59,11 @@ export function ProviderDetails() {
             />
           </div>
         </div>
-        <div className="fr-container--fluid fr-mt-10v">
+        <div className="fr-container fr-mt-10v">
           <div className="fr-grid-row">
             <SideMenu></SideMenu>
             <div className="fr-col-12 fr-col-md">
+              <ProviderName />
               <ProviderKey />
               <ProviderUrl />
               <ProviderUrlDeco />

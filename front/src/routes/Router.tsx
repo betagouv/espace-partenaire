@@ -3,6 +3,7 @@ import { PageLayout } from '../layouts/PageLayout';
 import HomeLayout from '../layouts/HomeLayout';
 import { ProviderDetails } from '../providers/details/ProviderDetails';
 import { EspaceDocumentation } from '../providers/documentation/EspaceDocumentation';
+import { EspaceConnected } from '../providers/connectedSpaces/EspaceConnected';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,14 @@ const router = createBrowserRouter([
     element: (
       <PageLayout>
         <EspaceDocumentation />
+      </PageLayout>
+    ),
+  },
+  {
+    path: '/dashboard/:id',
+    element: (
+      <PageLayout>
+        <EspaceConnected />
       </PageLayout>
     ),
   },
