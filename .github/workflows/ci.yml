@@ -18,6 +18,8 @@ jobs:
           node-version-file: package.json
       - run: npm ci
         working-directory: ./front
+      - run: npm run build
+        working-directory: ./front
 
   back:
     runs-on: ubuntu-latest
@@ -28,4 +30,6 @@ jobs:
           cache: 'npm'
           node-version-file: package.json
       - run: npm ci
+        working-directory: ./back
+      - run: npm run build
         working-directory: ./back
