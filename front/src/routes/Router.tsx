@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/dashboard',
+    path: '/dashboard/:id',
     element: (
       <PageLayout>
         <EspaceConnected />
