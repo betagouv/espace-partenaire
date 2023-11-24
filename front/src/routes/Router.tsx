@@ -37,6 +37,21 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: '/dashboard',
+    loader: async () => {
+      return backendClient.getDashboard();
+    },
+    element: (
+      <PageLayout>
+        <>
+          <a href="/dashboard/new">NEW</a>
+          <br />
+          <a href="/dashboard/123">Rebecca Project 123</a>
+        </>
+      </PageLayout>
+    ),
+  },
+  {
     path: '/dashboard/:id',
     loader: async ({ params }) => {
       const { id } = params;

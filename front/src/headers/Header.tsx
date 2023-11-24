@@ -20,7 +20,10 @@ function Header() {
         {
           iconId: 'fr-icon-user-fill',
           linkProps: {
-            to: '/connexion',
+            // NOTE(douglasduteil): use mocked data for now
+            // Will be replaced by
+            // to: '/connexion',
+            to: '/dashboard',
           },
           text: 'Se connecter',
         },

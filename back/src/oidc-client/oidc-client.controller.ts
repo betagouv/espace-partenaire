@@ -15,18 +15,35 @@ export class OidcClientController {
   constructor(private readonly oidcClientSaver: OidcClientSaver) {
     this.oidcClientSaver = oidcClientSaver;
   }
+
+  @Get('/')
+  async findAll() {
+    return [
+      {
+        clientDescription: 'Description',
+        clientId: 'clientId',
+        clientSecret: 'ClientSecret',
+        clientName: 'Rebecca Project 123',
+        redirectUris: ['http://example.com/callback'],
+        postLogoutRedirectUris: ['http://example.com/logout'],
+        scope: ['firstname', 'lastname'],
+      },
+    ] satisfies CreateOidcClientDto[];
+  }
+
   @Get('/:id')
-  async find(@Param('id') id: string) {
+  async find_by_id(@Param('id') id: string) {
     return {
       clientDescription: 'Description',
       clientId: 'clientId',
       clientSecret: 'ClientSecret',
-      clientName: 'Rebecca',
+      clientName: 'Rebecca Project 123',
       redirectUris: ['http://example.com/callback'],
       postLogoutRedirectUris: ['http://example.com/logout'],
       scope: ['firstname', 'lastname'],
     } satisfies CreateOidcClientDto;
   }
+
   @Post()
   async create(@Body() createOidcClientDto: CreateOidcClientDto) {
     try {
@@ -40,7 +57,7 @@ export class OidcClientController {
         HttpStatus.BAD_REQUEST,
         {
           cause: error,
-        },
+        }
       );
     }
   }
