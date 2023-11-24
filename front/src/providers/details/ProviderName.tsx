@@ -18,7 +18,7 @@ export const ProviderName = () => {
           <Input
             className="fr-col-md-7 fr-m-1v fr-text--bold"
             state={oidcClientForm.clientName === '' ? 'error' : 'default'}
-            stateRelatedMessage="Texte d’erreur obligatoire"
+            stateRelatedMessage="Nom de projet obligatoire"
             label="Nom du projet"
             nativeInputProps={{
               type: 'text',
