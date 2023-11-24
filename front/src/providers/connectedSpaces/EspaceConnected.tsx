@@ -11,7 +11,7 @@ import { ProviderValidation } from '../details/ProviderValidation';
 import { OidcClientFormContext } from '../details/oidc-client-form.context';
 
 export const EspaceConnected = () => {
-  const { oidcClientForm } = useContext(OidcClientFormContext);
+  const { oidcClientForm: {clientName} } = useContext(OidcClientFormContext);
   return (
     <>
       <div className="fr-container">
