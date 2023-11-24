@@ -1,8 +1,10 @@
 import {
   Body,
   Controller,
+  Get,
   HttpException,
   HttpStatus,
+  Param,
   Post,
 } from '@nestjs/common';
 import { CreateOidcClientDto } from './oidc-client.dto';
@@ -12,6 +14,18 @@ import { OidcClientSaver } from './oidc-client.saver';
 export class OidcClientController {
   constructor(private readonly oidcClientSaver: OidcClientSaver) {
     this.oidcClientSaver = oidcClientSaver;
+  }
+  @Get('/:id')
+  async find(@Param('id') id: string) {
+    return {
+      clientDescription: 'Description',
+      clientId: 'clientId',
+      clientSecret: 'ClientSecret',
+      clientName: 'Rebecca',
+      redirectUris: ['http://example.com/callback'],
+      postLogoutRedirectUris: ['http://example.com/logout'],
+      scope: ['firstname', 'lastname'],
+    } satisfies CreateOidcClientDto;
   }
   @Post()
   async create(@Body() createOidcClientDto: CreateOidcClientDto) {

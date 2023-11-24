@@ -1,5 +1,5 @@
-import { Input } from '@codegouvfr/react-dsfr/Input';
 import { Button } from '@codegouvfr/react-dsfr/Button';
+import { Input } from '@codegouvfr/react-dsfr/Input';
 import React, { useContext, useState } from 'react';
 import { backendClient } from '../../clients/back-client';
 import Title2 from '../../titles/Title2';
@@ -10,17 +10,24 @@ const copyToClipBoard = (value: string) => {
 };
 
 export const ProviderKey = () => {
-  const [clientID, setClientID] = useState('');
-  const [clientSecret, setClientSecret] = useState('');
-  const [isShown, setIsShown] = useState(false);
-
-  const { setOidcClientForm } = useContext(OidcClientFormContext);
+  const { setOidcClientForm, oidcClientForm } = useContext(
+    OidcClientFormContext
+  );
+  const [clientID, setClientID] = useState(oidcClientForm.clientId);
+  const [clientSecret, setClientSecret] = useState(oidcClientForm.clientSecret);
+  const [isShown, setIsShown] = useState(
+    Boolean(oidcClientForm.clientId && oidcClientForm.clientSecret)
+  );
 
   const toggleShowClientId = () => {
     setIsShown((current) => !current);
   };
 
   React.useEffect(() => {
+    if (isShown) {
+      return;
+    }
+
     async function fetchData() {
       try {
         const data = await backendClient.getKeys();

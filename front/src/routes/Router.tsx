@@ -1,9 +1,15 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { PageLayout } from '../layouts/PageLayout';
+import {
+  RouterProvider,
+  createBrowserRouter,
+  redirect,
+} from 'react-router-dom';
+import { backendClient } from '../clients/back-client';
 import HomeLayout from '../layouts/HomeLayout';
-import { ProviderDetails } from '../providers/details/ProviderDetails';
-import { EspaceDocumentation } from '../providers/documentation/EspaceDocumentation';
+import { PageLayout } from '../layouts/PageLayout';
 import { EspaceConnected } from '../providers/connectedSpaces/EspaceConnected';
+import { ProviderDetails } from '../providers/details/ProviderDetails';
+import { OidcClientFormProvider } from '../providers/details/oidc-client-form.context';
+import { EspaceDocumentation } from '../providers/documentation/EspaceDocumentation';
 
 const router = createBrowserRouter([
   {
@@ -32,9 +38,28 @@ const router = createBrowserRouter([
   },
   {
     path: '/dashboard/:id',
+    loader: async ({ params }) => {
+      const { id } = params;
+      if (!id) {
+        return redirect('/dashboard');
+      }
+      return backendClient.getDashboardItem(id);
+    },
     element: (
       <PageLayout>
-        <EspaceConnected />
+        <OidcClientFormProvider>
+          <EspaceConnected />
+        </OidcClientFormProvider>
+      </PageLayout>
+    ),
+  },
+  {
+    path: '/dashboard/new',
+    element: (
+      <PageLayout>
+        <OidcClientFormProvider>
+          <EspaceConnected />
+        </OidcClientFormProvider>
       </PageLayout>
     ),
   },
