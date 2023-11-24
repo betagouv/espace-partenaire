@@ -16,7 +16,7 @@ export class OidcClientController {
     this.oidcClientSaver = oidcClientSaver;
   }
 
-  @Get('/')
+  @Get()
   async findAll() {
     return [
       {
