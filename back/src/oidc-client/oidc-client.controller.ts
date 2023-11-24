@@ -40,7 +40,7 @@ export class OidcClientController {
         HttpStatus.BAD_REQUEST,
         {
           cause: error,
-        }
+        },
       );
     }
   }

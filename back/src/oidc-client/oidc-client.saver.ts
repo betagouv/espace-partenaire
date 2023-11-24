@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 export class OidcClientSaver {
   constructor(
     @InjectRepository(OidcClient)
-    private oidcClientRepository: Repository<OidcClient>
+    private oidcClientRepository: Repository<OidcClient>,
   ) {}
 
   oidcClient = new OidcClient();
@@ -29,7 +29,7 @@ export class OidcClientSaver {
   };
 
   save = async (
-    createOidcClientDto: CreateOidcClientDto
+    createOidcClientDto: CreateOidcClientDto,
   ): Promise<CreateOidcClientDto> => {
     const oidcClient = this.hydrate(createOidcClientDto, this.oidcClient);
     await this.oidcClientRepository.save(oidcClient);
