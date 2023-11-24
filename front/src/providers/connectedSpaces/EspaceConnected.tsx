@@ -15,7 +15,7 @@ export const EspaceConnected = () => {
   return (
     <>
       <div className="fr-container">
-        <Title1>{oidcClientForm.clientName}</Title1>
+        <Title1>{clientName}</Title1>
         <div className="fr-container--fluid">
           <div className="fr-grid-row fr-grid-row--gutters"></div>
         </div>
