@@ -5,6 +5,10 @@
     "pnpm": ">=8"
   },
   "private": true,
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "start": "npm run start --workspace back"
+  },
   "devDependencies": {
     "prettier": "^3.1.0"
   },
