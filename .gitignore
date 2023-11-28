@@ -22,3 +22,4 @@
 !.vscode/extensions.json
 
 .env
+node_modules
