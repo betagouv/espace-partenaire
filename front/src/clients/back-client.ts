@@ -6,6 +6,8 @@ export const backendClient = {
   getKeys,
   getList,
   postOidcClient,
+  getDashboard,
+  getDashboardItem,
 };
 
 async function getKeys() {
@@ -15,6 +17,16 @@ async function getKeys() {
 
 async function getList() {
   const response = await axios.get(VITE_BASE_URL + '/list');
+  return response.data;
+}
+
+async function getDashboard() {
+  const response = await axios.get(VITE_BASE_URL + '/oidc-clients/');
+  return response.data;
+}
+
+async function getDashboardItem(id: string) {
+  const response = await axios.get(VITE_BASE_URL + '/oidc-clients/' + id);
   return response.data;
 }
 

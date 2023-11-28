@@ -21,5 +21,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <MuiDsfrThemeProvider>
       <Router />
     </MuiDsfrThemeProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

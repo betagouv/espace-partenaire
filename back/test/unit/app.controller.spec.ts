@@ -17,7 +17,7 @@ describe('AppController', () => {
   describe('root', () => {
     it('should return "Hello World!"', () => {
       expect(appController.getHello()).toBe(
-        'Bonjour, bienvenue dans votre nouvel espace partenaires'
+        'Bonjour, bienvenue dans votre nouvel espace partenaires',
       );
     });
   });

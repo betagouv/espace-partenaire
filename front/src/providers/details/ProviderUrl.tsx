@@ -1,14 +1,18 @@
-import { Input } from '@codegouvfr/react-dsfr/Input';
 import { Button } from '@codegouvfr/react-dsfr/Button';
+import { Input } from '@codegouvfr/react-dsfr/Input';
 import { ChangeEvent, useContext, useState } from 'react';
 import Title2 from '../../titles/Title2';
 import { OidcClientFormContext } from './oidc-client-form.context';
 
 export const ProviderUrl = () => {
-  const [inputUrl, setInputUrl] = useState<string>('');
-  const [contents, setContents] = useState<string[]>([]);
-  const { setOidcClientForm } = useContext(OidcClientFormContext);
+  const { setOidcClientForm, oidcClientForm } = useContext(
+    OidcClientFormContext
+  );
 
+  const [inputUrl, setInputUrl] = useState<string>('');
+  const [contents, setContents] = useState<string[]>(
+    oidcClientForm.redirectUris
+  );
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setInputUrl(e.target.value);
   };
