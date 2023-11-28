@@ -5,11 +5,11 @@
     "pnpm": ">=8"
   },
   "private": true,
+  "devDependencies": {
+    "prettier": "^3.1.0"
+  },
   "workspaces": [
     "back",
     "front"
-  ],
-  "devDependencies": {
-    "prettier": "^3.1.0"
-  }
+  ]
 }
