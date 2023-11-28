@@ -1,12 +1,16 @@
-import { Input } from '@codegouvfr/react-dsfr/Input';
 import { Button } from '@codegouvfr/react-dsfr/Button';
+import { Input } from '@codegouvfr/react-dsfr/Input';
 import { ChangeEvent, useContext, useState } from 'react';
 import { OidcClientFormContext } from './oidc-client-form.context';
 
 export const ProviderUrlDeco = () => {
+  const { setOidcClientForm, oidcClientForm } = useContext(
+    OidcClientFormContext
+  );
   const [inputUrl, setInputUrl] = useState<string>('');
-  const [contents, setContents] = useState<string[]>([]);
-  const { setOidcClientForm } = useContext(OidcClientFormContext);
+  const [contents, setContents] = useState<string[]>(
+    oidcClientForm.postLogoutRedirectUris
+  );
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setInputUrl(e.target.value);
@@ -34,7 +38,7 @@ export const ProviderUrlDeco = () => {
         <div className="fr-grid-row fr-grid-row--bottom">
           <Input
             className="fr-col-md-7 fr-m-1v fr-text--bold"
-            label="URL de la page de redirection"
+            label="URL de la page de déconnexion"
             nativeInputProps={{
               value: inputUrl,
               placeholder: 'https://',

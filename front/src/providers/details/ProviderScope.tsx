@@ -1,13 +1,15 @@
 import { Checkbox } from '@codegouvfr/react-dsfr/Checkbox';
 import React, { ChangeEvent, useContext, useState } from 'react';
-import Title2 from '../../titles/Title2';
-import { OidcClientFormContext } from './oidc-client-form.context';
-import { OidcClient } from '../../types';
 import { COLORS } from '../../constants';
+import Title2 from '../../titles/Title2';
+import { OidcClient } from '../../types';
+import { OidcClientFormContext } from './oidc-client-form.context';
 
 export const ProviderScope = () => {
-  const [scope, setScope] = useState<string[]>([]);
-  const { setOidcClientForm } = useContext(OidcClientFormContext);
+  const { setOidcClientForm, oidcClientForm } = useContext(
+    OidcClientFormContext
+  );
+  const [scope, setScope] = useState<string[]>(oidcClientForm.scope);
 
   const getScopes = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
@@ -49,6 +51,7 @@ export const ProviderScope = () => {
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'firstname',
+              checked: scope.includes('firstname'),
               onChange: getScopes,
             },
           },
@@ -57,6 +60,7 @@ export const ProviderScope = () => {
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'lastname',
+              checked: scope.includes('lastname'),
               onChange: getScopes,
             },
           },
@@ -65,6 +69,7 @@ export const ProviderScope = () => {
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'function-in-organization',
+              checked: scope.includes('function-in-organization'),
               onChange: getScopes,
             },
           },
@@ -73,6 +78,7 @@ export const ProviderScope = () => {
             nativeInputProps: {
               name: 'checkboxes-1',
               value: 'email',
+              checked: scope.includes('email'),
               onChange: getScopes,
             },
           },

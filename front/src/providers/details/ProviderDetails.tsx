@@ -1,18 +1,18 @@
-import { SideMenu } from './ProviderSideMenu';
-import { ProviderKey } from './ProviderKey';
-import { ProviderUrl } from './ProviderUrl';
-import { ProviderScope } from './ProviderScope';
-import { KeyProductionData } from './KeyProductionData';
-import { ProviderUrlDeco } from './ProviderUrlDeco';
-import Title1 from '../../titles/Title1';
-import { OidcClientFormContext } from './oidc-client-form.context';
-import { OidcClient } from '../../types';
 import { useState } from 'react';
 import CardInfos from '../../cards/CardInfos';
 import monImage from '../../images/test-image.png';
 import monImage2 from '../../images/test-image2.png';
-import { ProviderValidation } from './ProviderValidation';
+import Title1 from '../../titles/Title1';
+import { OidcClient } from '../../types';
+import { KeyProductionData } from './KeyProductionData';
+import { ProviderKey } from './ProviderKey';
 import { ProviderName } from './ProviderName';
+import { ProviderScope } from './ProviderScope';
+import { SideMenu } from './ProviderSideMenu';
+import { ProviderUrl } from './ProviderUrl';
+import { ProviderUrlDeco } from './ProviderUrlDeco';
+import { ProviderValidation } from './ProviderValidation';
+import { OidcClientFormContext } from './oidc-client-form.context';
 
 export function ProviderDetails() {
   const [oidcClientForm, setOidcClientForm] = useState<OidcClient>({
@@ -28,11 +28,12 @@ export function ProviderDetails() {
   return (
     <OidcClientFormContext.Provider
       value={{
+        oidcClientForm,
         setOidcClientForm,
       }}
     >
       <div className="fr-container">
-        <Title1 title="Implémentation" />
+        <Title1>Implémentation</Title1>
         <div className="fr-container">
           <div className="fr-grid-row fr-grid-row--gutters">
             <CardInfos
