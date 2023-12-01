@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { KeysGenerator } from './keys/keys-generator';
-import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { config } from './config';
-import { OidcClientModule } from './oidc-client/oidc-client.module';
-import { KeysModule } from './keys/keys.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { join } from 'path';
+import { AppController } from './app.controller';
+import { config } from './config';
+import { KeysGenerator } from './keys/keys-generator';
+import { KeysModule } from './keys/keys.module';
+import { OidcClientModule } from './oidc-client/oidc-client.module';
 
 const dataSource: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -25,7 +25,7 @@ const dataSource: TypeOrmModuleOptions = {
     OidcClientModule,
     KeysModule,
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'front'),
+      rootPath: join(__dirname, '../..', 'front/dist'),
     }),
   ],
   controllers: [AppController],

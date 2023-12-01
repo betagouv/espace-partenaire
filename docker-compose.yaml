@@ -9,26 +9,13 @@ services:
       POSTGRES_PASSWORD: pwd
       POSTGRES_PORT: 5432
     ports:
-      - "5432:5432"
+      - '5432:5432'
 
   database-admin:
     image: adminer
     ports:
-        - 8080:8080
+      - 8080:8080
     expose:
-      - "8080"
-    depends_on:
-        - database
-
-  backend:
-    build:
-      context: ./back
-    volumes:
-      - ./back:/srv/espace-partenaire/back
+      - '8080'
     depends_on:
       - database
-    ports:
-      - "3000:3000"
-    expose:
-      - "3000"
-    command: npm run start:dev
