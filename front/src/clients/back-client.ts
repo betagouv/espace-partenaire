@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { OidcClient } from '../types';
-const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
+const VITE_BASE_URL = import.meta.env.VITE_BASE_URL ?? '';
 
 export const backendClient = {
   getKeys,
