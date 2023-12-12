@@ -34,7 +34,7 @@ export function ProviderDetails() {
     >
       <div className="fr-container">
         <Title1>Implémentation</Title1>
-        <div className="fr-container">
+        <div className="fr-container--fluid">
           <div className="fr-grid-row fr-grid-row--gutters">
             <CardInfos
               title="Faites vos tests"
