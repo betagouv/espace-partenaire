@@ -18,22 +18,11 @@ Install locally the application:
 git clone git@github.com:betagouv/espace-partenaire.git
 ```
 
-Copy back .env
-
-```
-cp back/.env.dist back/.env
-```
-
-Copy front .env
-
-```
-cp front/.env.dist front/.env
-```
-
-Install project:
-
-```
-make i
+```sh
+$ npm install
+$ npm dev # will do a docker compose up !
+$ npm build
+$ npm start
 ```
 
 ## Start backend
@@ -43,6 +32,7 @@ Launch backend
 ```
 make sb
 ```
+
 You can access the project here : http://localhost:3000/welcome
 
 If you want to launch a the front served by the backend:
@@ -50,6 +40,7 @@ If you want to launch a the front served by the backend:
 ```
 make f
 ```
+
 You can see the static front on http://localhost:3000
 
 ## Start front end for dev
@@ -59,8 +50,8 @@ Launch the project with another node server locally (not on docker this time):
 ```
 make sf
 ```
-You can access it on http://localhost:3001/ :
 
+You can access it on http://localhost:3001/ :
 
 ## Global Architecture
 
