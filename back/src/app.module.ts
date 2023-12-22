@@ -7,6 +7,7 @@ import { config } from './config';
 import { KeysGenerator } from './keys/keys-generator';
 import { KeysModule } from './keys/keys.module';
 import { OidcClientModule } from './oidc-client/oidc-client.module';
+import { ServiceProvider } from './oidc-client/service-provider-adapter-mongo.schema';
 
 const dataSource: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -17,6 +18,14 @@ const dataSource: TypeOrmModuleOptions = {
   database: config.DATABASE_NAME,
   entities: [__dirname + '/**/*.entity{.ts,.js}'],
   synchronize: config.DATA_SYNCHRONIZE,
+};
+
+const dataSource_2: TypeOrmModuleOptions = {
+  type: 'mongodb',
+  url: config.MONGODB_CONNECTION_STRING,
+  database: config.MONGODB_DATABASE,
+  entities: [ServiceProvider],
+  autoLoadEntities: true,
 };
 
 @Module({

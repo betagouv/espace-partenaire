@@ -7,17 +7,25 @@ import {
   Param,
   Post,
 } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { MongoRepository } from 'typeorm';
 import { CreateOidcClientDto } from './oidc-client.dto';
 import { OidcClientSaver } from './oidc-client.saver';
+import { ServiceProvider } from './service-provider-adapter-mongo.schema';
 
 @Controller('oidc-clients')
 export class OidcClientController {
-  constructor(private readonly oidcClientSaver: OidcClientSaver) {
+  constructor(
+    private readonly oidcClientSaver: OidcClientSaver,
+    @InjectRepository(ServiceProvider)
+    private readonly serviceProvider: MongoRepository<ServiceProvider>,
+  ) {
     this.oidcClientSaver = oidcClientSaver;
   }
 
   @Get()
   async findAll() {
+    console.log(this.serviceProvider.find());
     return [
       {
         clientDescription: 'Description',
@@ -57,7 +65,7 @@ export class OidcClientController {
         HttpStatus.BAD_REQUEST,
         {
           cause: error,
-        }
+        },
       );
     }
   }

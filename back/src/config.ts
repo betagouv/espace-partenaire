@@ -16,6 +16,8 @@ if (process.env.DATABASE_URL) {
 
 const config = {
   PORT: Number(process.env.PORT) || 3000,
+  MONGODB_CONNECTION_STRING: process.env.MONGODB_CONNECTION_STRING || '',
+  MONGODB_DATABASE: process.env.MONGODB_DATABASE || '',
   DATABASE_NAME: process.env.DATABASE_NAME || '',
   DATABASE_USERNAME: process.env.DATABASE_USER || '',
   DATABASE_PASSWORD: process.env.DATABASE_PASSWORD || '',
