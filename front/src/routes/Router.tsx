@@ -72,9 +72,10 @@ const router = createBrowserRouter([
     path: '/dashboard/new',
     element: (
       <PageLayout>
-        <OidcClientFormProvider>
+        <>test</>
+        {/* <OidcClientFormProvider>
           <EspaceConnected />
-        </OidcClientFormProvider>
+        </OidcClientFormProvider> */}
       </PageLayout>
     ),
   },
