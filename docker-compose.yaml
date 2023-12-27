@@ -1,26 +1,7 @@
 version: '3.7'
 
 services:
-  database:
-    image: postgres:14-alpine
-    environment:
-      POSTGRES_DB: partenaire
-      POSTGRES_USER: partenaire
-      POSTGRES_PASSWORD: pwd
-      POSTGRES_PORT: 5432
-    ports:
-      - '5432:5432'
-
-  database-admin:
-    image: adminer
-    ports:
-      - 8080:8080
-    expose:
-      - '8080'
-    depends_on:
-      - database
-
-  mongo:
+  mongo-sandbox:
     image: mongo:4.4
     ports:
       - '27017:27017'
@@ -38,6 +19,6 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: rootAdmin
       ME_CONFIG_MONGODB_ADMINPASSWORD: pass
-      ME_CONFIG_MONGODB_URL: mongodb://rootAdmin:pass@mongo:27017/
+      ME_CONFIG_MONGODB_URL: mongodb://rootAdmin:pass@mongo-sandbox:27017/
     depends_on:
-      - mongo
+      - mongo-sandbox

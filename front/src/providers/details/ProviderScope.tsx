@@ -7,7 +7,7 @@ import { OidcClientFormContext } from './oidc-client-form.context';
 
 export const ProviderScope = () => {
   const { setOidcClientForm, oidcClientForm } = useContext(
-    OidcClientFormContext
+    OidcClientFormContext,
   );
   const [scope, setScope] = useState<string[]>(oidcClientForm.scope);
 

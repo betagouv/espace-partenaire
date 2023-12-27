@@ -23,6 +23,9 @@ function Header() {
             // NOTE(douglasduteil): use mocked data for now
             // Will be replaced by
             // to: '/connexion',
+            // or
+            // to: `${import.meta.env.VITE_BASE_URL}/api/auth/login`,
+            // target: '_self',
             to: '/dashboard',
           },
           text: 'Se connecter',

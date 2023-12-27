@@ -1,14 +1,20 @@
+//
+
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { MongooseModule } from '@nestjs/mongoose';
 import { OidcClientController } from './oidc-client.controller';
-import { OidcClient } from './oidc-client.entity';
-import { OidcClientSaver } from './oidc-client.saver';
-import { ServiceProvider } from './service-provider-adapter-mongo.schema';
+import {
+  ServiceProvider,
+  ServiceProviderSchema,
+} from './service-provider-adapter-mongo.schema';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([OidcClient, ServiceProvider])],
+  imports: [
+    MongooseModule.forFeature(
+      [{ name: ServiceProvider.name, schema: ServiceProviderSchema }],
+      'sandbox',
+    ),
+  ],
   controllers: [OidcClientController],
-  providers: [OidcClientSaver],
-  exports: [OidcClientSaver],
 })
 export class OidcClientModule {}

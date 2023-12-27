@@ -14,6 +14,7 @@ export function OidcClientFormProvider({
   children,
 }: PropsWithChildren<{ id?: string }>) {
   const item = useLoaderData() as OidcClient;
+
   const [oidcClientForm, setOidcClientForm] = useState<OidcClient>(
     item ?? {
       clientName: 'Test ' + new Date().toLocaleDateString(),
@@ -23,7 +24,7 @@ export function OidcClientFormProvider({
       redirectUris: [],
       postLogoutRedirectUris: [],
       scope: [],
-    }
+    },
   );
 
   return (
