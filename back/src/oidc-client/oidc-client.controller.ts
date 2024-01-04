@@ -28,20 +28,4 @@ export class OidcClientController {
     };
   }
   // @Post()
-  // async create(@Body() createOidcClientDto: CreateOidcClientDto) {
-  //   try {
-  //     return await this.oidcClientSaver.save(createOidcClientDto);
-  //   } catch (error) {
-  //     throw new HttpException(
-  //       {
-  //         status: HttpStatus.BAD_REQUEST,
-  //         error: `Error occurs : ${error.message}`,
-  //       },
-  //       HttpStatus.BAD_REQUEST,
-  //       {
-  //         cause: error,
-  //       },
-  //     );
-  //   }
-  // }
 }
