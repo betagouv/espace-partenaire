@@ -1,0 +1,16 @@
+#
+*
+
+#
+!**/package.json
+!/back/nest-cli.json
+!/back/src
+!/back/tsconfig.build.json
+!/back/tsconfig.json
+!/front/index.html
+!/front/public/.gitkeep
+!/front/src
+!/front/tsconfig.json
+!/front/tsconfig.node.json
+!/front/vite.config.ts
+!/package-lock.json
