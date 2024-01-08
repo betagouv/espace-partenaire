@@ -20,7 +20,7 @@ git clone git@github.com:betagouv/espace-partenaire.git
 
 ```sh
 $ npm install
-$ npm dev # will do a docker compose up !
+$ npm run dev # will do a docker compose up !
 $ npm build
 $ npm start
 ```
