@@ -11,6 +11,7 @@ import { ProviderDetails } from '../providers/details/ProviderDetails';
 import { OidcClientFormProvider } from '../providers/details/oidc-client-form.context';
 import { EspaceDocumentation } from '../providers/documentation/EspaceDocumentation';
 import { Dashboard } from '../providers/connectedSpaces/Dashboard';
+import { OidcClient } from '../types';
 
 const router = createBrowserRouter([
   {
@@ -40,11 +41,13 @@ const router = createBrowserRouter([
   {
     path: '/dashboard',
     loader: async () => {
-      return backendClient.getDashboard();
+      const datas: OidcClient = await backendClient.getDashboard();
+      return datas;
     },
+    id: 'dashboard',
     element: (
       <PageLayout>
-        <Dashboard></Dashboard>
+        <Dashboard />
       </PageLayout>
     ),
   },
