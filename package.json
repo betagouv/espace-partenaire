@@ -9,7 +9,6 @@
     "dev": "npx npm-run-all --parallel dev:*",
     "dev:front": "npm run dev --workspace front",
     "dev:back": "npm run start:dev --workspace back",
-    "dev:database": "docker compose up",
     "build": "npm run build --workspaces",
     "start": "npm run start --workspace back"
   },

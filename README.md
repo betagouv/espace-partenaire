@@ -87,3 +87,10 @@ make f
 ```
 
 Enjoy ! ✨
+
+## Docker
+
+```sh
+# Run the local database and a local production app.
+$ docker compose -f docker-compose.yaml -f docker-compose.app.yaml up
+```

@@ -1,64 +1,31 @@
-import {
-  Body,
-  Controller,
-  Get,
-  HttpException,
-  HttpStatus,
-  Param,
-  Post,
-} from '@nestjs/common';
-import { CreateOidcClientDto } from './oidc-client.dto';
-import { OidcClientSaver } from './oidc-client.saver';
+import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { ServiceProvider } from './service-provider-adapter-mongo.schema';
 
 @Controller('oidc-clients')
 export class OidcClientController {
-  constructor(private readonly oidcClientSaver: OidcClientSaver) {
-    this.oidcClientSaver = oidcClientSaver;
-  }
-
+  constructor(
+    @InjectModel(ServiceProvider.name, 'sandbox')
+    private readonly serviceProvider: Model<ServiceProvider>,
+  ) {}
   @Get()
   async findAll() {
-    return [
-      {
-        clientDescription: 'Description',
-        clientId: 'clientId',
-        clientSecret: 'ClientSecret',
-        clientName: 'Rebecca Project 123',
-        redirectUris: ['http://example.com/callback'],
-        postLogoutRedirectUris: ['http://example.com/logout'],
-        scope: ['firstname', 'lastname'],
-      },
-    ] satisfies CreateOidcClientDto[];
+    return await this.serviceProvider.find().exec();
   }
-
-  @Get('/:id')
-  async find_by_id(@Param('id') id: string) {
+  @Get('/:key')
+  async find_by_id(@Param('key') key: string) {
+    const service = await this.serviceProvider.findOne({ key }).exec();
+    if (!service) throw new NotFoundException();
     return {
-      clientDescription: 'Description',
-      clientId: 'clientId',
-      clientSecret: 'ClientSecret',
-      clientName: 'Rebecca Project 123',
-      redirectUris: ['http://example.com/callback'],
-      postLogoutRedirectUris: ['http://example.com/logout'],
-      scope: ['firstname', 'lastname'],
-    } satisfies CreateOidcClientDto;
+      clientName: service.name,
+      clientDescription: service.email,
+      clientId: service.entityId,
+      clientSecret: service.client_secret,
+      scope: service.scopes,
+      postLogoutRedirectUris: service.post_logout_redirect_uris,
+      redirectUris: service.redirect_uris,
+    };
   }
-
-  @Post()
-  async create(@Body() createOidcClientDto: CreateOidcClientDto) {
-    try {
-      return await this.oidcClientSaver.save(createOidcClientDto);
-    } catch (error) {
-      throw new HttpException(
-        {
-          status: HttpStatus.BAD_REQUEST,
-          error: `Error occurs : ${error.message}`,
-        },
-        HttpStatus.BAD_REQUEST,
-        {
-          cause: error,
-        }
-      );
-    }
-  }
+  // @Post()
 }

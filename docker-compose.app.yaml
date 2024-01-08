@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    depends_on:
+      - mongo-sandbox
+    environment:
+      - MONGODB_SANDBOX_CONNECTION_STRING=mongodb://fc:pass@mongo-sandbox:27017/core-fca-low
+      - MONGODB_SANDBOX_DATABASE=core-fca-low
+    ports:
+      - '3000:3000'
