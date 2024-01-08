@@ -10,6 +10,7 @@ import { EspaceConnected } from '../providers/connectedSpaces/EspaceConnected';
 import { ProviderDetails } from '../providers/details/ProviderDetails';
 import { OidcClientFormProvider } from '../providers/details/oidc-client-form.context';
 import { EspaceDocumentation } from '../providers/documentation/EspaceDocumentation';
+import { Dashboard } from '../providers/connectedSpaces/Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -43,11 +44,7 @@ const router = createBrowserRouter([
     },
     element: (
       <PageLayout>
-        <>
-          <a href="/dashboard/new">NEW</a>
-          <br />
-          <a href="/dashboard/123">Rebecca Project 123</a>
-        </>
+        <Dashboard></Dashboard>
       </PageLayout>
     ),
   },
