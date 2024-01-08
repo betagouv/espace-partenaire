@@ -20,6 +20,7 @@ export class OidcClientController {
   async findAll() {
     return [
       {
+        id: 123,
         clientDescription: 'Description',
         clientId: 'clientId',
         clientSecret: 'ClientSecret',
@@ -34,6 +35,7 @@ export class OidcClientController {
   @Get('/:id')
   async find_by_id(@Param('id') id: string) {
     return {
+      id: 123,
       clientDescription: 'Description',
       clientId: 'clientId',
       clientSecret: 'ClientSecret',
@@ -57,7 +59,7 @@ export class OidcClientController {
         HttpStatus.BAD_REQUEST,
         {
           cause: error,
-        }
+        },
       );
     }
   }

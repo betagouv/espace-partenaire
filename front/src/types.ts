@@ -1,4 +1,5 @@
 export type OidcClient = {
+  id: number;
   clientName: string;
   clientDescription: string;
   clientId: string;
@@ -7,3 +8,5 @@ export type OidcClient = {
   postLogoutRedirectUris: string[];
   scope: string[];
 };
+
+export type OidcClients = OidcClient[];
