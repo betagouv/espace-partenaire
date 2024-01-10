@@ -5,4 +5,5 @@ export const COLORS = {
   cardBackground: fr.colors.decisions.background.default.grey.hover,
   titleColor: fr.colors.decisions.text.title.blueFrance.default,
   buttonBackground: fr.colors.decisions.background.default.grey.default,
+  textColorGrey: fr.colors.decisions.text.mention.grey.default,
 };
