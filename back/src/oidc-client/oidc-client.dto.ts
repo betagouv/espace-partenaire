@@ -4,6 +4,9 @@ export class CreateOidcClientDto {
   clientDescription: string | null;
 
   @IsNotEmpty()
+  id: number;
+
+  @IsNotEmpty()
   clientName: string;
 
   @IsNotEmpty()

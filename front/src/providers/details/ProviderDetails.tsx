@@ -16,6 +16,7 @@ import { OidcClientFormContext } from './oidc-client-form.context';
 
 export function ProviderDetails() {
   const [oidcClientForm, setOidcClientForm] = useState<OidcClient>({
+    id: 0,
     clientName: '',
     clientDescription: '',
     clientId: '',
