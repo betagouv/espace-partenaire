@@ -2,14 +2,14 @@ import { Badge } from '@codegouvfr/react-dsfr/Badge';
 import Title1 from '../../titles/Title1';
 import { Card } from '@codegouvfr/react-dsfr/Card';
 import { useRouteLoaderData } from 'react-router-dom';
+import { OidcClients } from '../../types';
 
 export const Dashboard = () => {
-  const oidcClients = useRouteLoaderData('dashboard');
+  const oidcClients = useRouteLoaderData('dashboard') as OidcClients;
   return (
     <div className="fr-container fr-mb-10v">
       <Title1>Tableau de bord</Title1>
       <div className="fr-grid-row fr-grid-row--gutters">
-        {/* ERREUR DE TYPAGE A CORRIGER */}
         {oidcClients.map((oidcClient) => (
           <div className="container fr-col-6">
             <Card
