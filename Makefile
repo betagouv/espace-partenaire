@@ -16,7 +16,7 @@ stop:
 	${DOCKER_COMPOSE} stop
 
 start-front sf:
-	cd front && npm run dev
+	npm run dev
 
 restart r: stop start
 
